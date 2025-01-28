@@ -142,9 +142,7 @@ Free exchange of ideas and critique is encouraged and expected but I will not to
 * 25% - Final Exam and Project
 * 25% - Participation, Attendance and Preparedness
 
-*For the weekly class assignments, I am primarily looking to see that you were engaged in the work, worked through challenges, and produced creative artistic, computational work. Your weekly writing on the work is essential for demonstrating this and sharing the work you've done.*
-
-*Even if you get stuck, are unable to finish, or produce "incorrect" results, *please turn in your work, even if incomplete* to receive credit for your work. No work turned in means I have no way to see where you got stuck, what help you need, and what you worked on.*
+*Even if you get stuck, are unable to finish, or produce "incorrect" results, please turn in your work, even if incomplete to receive credit for your work. No work turned in means I have no way to see where you got stuck, what help you need, and what you worked on.*
 
 ### Participation
 
