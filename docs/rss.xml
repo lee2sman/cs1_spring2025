@@ -1,0 +1,35 @@
+<rss version="2.0">
+<channel>
+<title>Computer Science 1, Spring 2025</title>
+<link>https://leetusman.com/cs1_spring2025</link>
+<description>Computer Science 1, Spring 2025 at Purchase College.</description>
+<item>
+<title>
+"Week 1 - Introduction"
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
+</guid>
+<pubDate>
+Mon, 27 Jan 2025 00:00:00 -0500
+</pubDate>
+<description>
+<![CDATA[
+Introduction
+
+-   Who am I?
+-   How did you end up here?
+    -   why did you sign up for this class?
+-   What is computer science?
+-   Our course goals
+-   What are you worried about in this course?
+-   What are you excited for or optimistic about?
+-   What questions do you have? (for this course, for me…)?
+]]>
+</description>
+</item>
+</channel>
+  </rss>
