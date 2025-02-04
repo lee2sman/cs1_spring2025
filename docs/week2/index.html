@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>"Week 2 - Variables and Conditionals"</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content=""Week 2 - Variables and
+Conditionals"" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>"Week 2 - Variables and Conditionals"</h1>
+            <p><em>Date: 2025-02-03</em></p>
+            <p>Note: We will take breaks at least once an hour</p>
+            <h2 id="todays-schedule">Today’s Schedule</h2>
+            <ul>
+            <li>Ungraded quiz</li>
+            <li>warmup: flag</li>
+            <li>createShape()</li>
+            <li>Variables</li>
+            <li>Random</li>
+            <li>Review HW</li>
+            <li>Conditionals</li>
+            <li>If we have time: bouncing a ball</li>
+            </ul>
+            <h2 id="make-a-flag">Make a flag</h2>
+            <p>Choose one from the list and work on it solo or with a
+            partner.</p>
+            <figure>
+            <img src="../images/flags.png" alt="Flags" />
+            <figcaption aria-hidden="true">Flags</figcaption>
+            </figure>
+            <h2 id="todays-goals">Today’s Goals</h2>
+            <p>Today’s goals are to understand variables, conditionals
+            and loops. You should understand variables completely,
+            including types.</p>
+            <p>You should also be able to program your own simple video
+            game. We will start to build Pong.</p>
+            <p>How does this fit into the plan for the semester?
+            Variables and Conditionals (aka “If Statements”) are
+            foundational knowledge for all programming languages. With
+            this basic knowledge you can move on to more advanced
+            concepts in programming.</p>
+            <h2 id="defaults">Defaults</h2>
+            <h3 id="size-default">Size default</h3>
+            <p>By default, Processing will create a window of 100 by 100
+            pixels if you do not set the window size with
+            <code>size(x, y)</code>.</p>
+            <h3 id="control-flow-default">Control flow default</h3>
+            <p>If you do not specify a setup() or draw() function the
+            code will execute once.</p>
+            <h3 id="background-default">Background default</h3>
+            <p>The background, if not specified, will be grey aka
+            <code>background(120)</code>.</p>
+            <h2 id="custom-shapes">Custom Shapes</h2>
+            <p>Last week we covered rectangles, ellipses, points, lines.
+            There are other <a
+            href="https://processing.org/reference/#shape">shapes</a>
+            available such as triangles, quads and arcs.</p>
+            <p>But you can also make your own custom shape, filled or
+            empty. You do so by starting the shape, declaring all the
+            points (similar to fill-in-the-dots), then closing the
+            shape.</p>
+            <p>Example</p>
+            <pre><code>beginShape();
+vertex(20, 20);
+vertex(40, 20);
+vertex(40, 40);
+vertex(60, 40);
+vertex(60, 60);
+vertex(20, 60);
+endShape(CLOSE);</code></pre>
+            <figure>
+            <img src="../images/beginShape.jpg"
+            alt="L Shape (from Processing reference)" />
+            <figcaption aria-hidden="true">L Shape (from Processing
+            reference)</figcaption>
+            </figure>
+            <p>Info on <a
+            href="https://processing.org/reference/beginShape_.html">beginShape</a></p>
+            <h3 id="variables">Variables</h3>
+            <p>A variable is a container to hold a value in memory.</p>
+            <p>A variable’s value can be altered.</p>
+            <p><img src="../images/variable.jpg" alt="variable" />
+            <em>image from atnyla.com</em></p>
+            <p>Example:</p>
+            <p>the variable <code>age</code> increases by 1 each year on
+            your birthday.</p>
+            <h3 id="types-of-variables">Types of Variables</h3>
+            <p>Variables are declared (aka created) by first stating
+            their type, then their name. They must start with a letter
+            and may only consist of letters, numbers and underscores
+            (e.g. <code>student_age</code> ).</p>
+            <p>The type of a variable indicates what you will be storing
+            in it.</p>
+            <p><code>int</code>, an integer. For whole numbers such as
+            -12, 0, 340, 32.</p>
+            <p><code>float</code>, a floating point number, more
+            commonly called a <em>decimal.</em> Examples: 0.005, 75.30,
+            33333.33333334.</p>
+            <p><code>boolean</code>, a variable that can either be true
+            or false.</p>
+            <p>Other variable types that we won’t use much in this class
+            but are good to know include char, byte, short, long,
+            double.</p>
+            <h4 id="declare-and-initializing-variables">Declare and
+            Initializing variables</h4>
+            <p>You create a variable when you <strong>declare</strong>
+            it.</p>
+            <p>You set the value of a variable when you
+            <strong>initialize</strong> it.</p>
+            <p>Note: I’ve bolded these words because these are their
+            official names.</p>
+            <p>Declaring and initializing in two separate steps:</p>
+            <pre><code>int age; //declares a variable age
+age = 20; //initializes the variable age</code></pre>
+            <p><strong>OR</strong></p>
+            <p>Declaring and initializing in a single step:</p>
+            <pre><code>int age = 20; //declare and initialize the variable</code></pre>
+            <p><strong>When should you use a variable? When you have to
+            rewrite a particular value multiple times.</strong></p>
+            <h3 id="adding-a-variable-to-itself">Adding a variable to
+            itself</h3>
+            <p>Example:</p>
+            <p>Moving a circle to the right.</p>
+            <pre><code>int circleX = 20;
+
+void draw(){
+  ellipse(circleX, 50, 20, 20);
+  circleX = circleX + 1; //adds 1 to circleX each time it runs
+}</code></pre>
+            <p>In this example, take a look at the line
+            <code>circleX = circleX + 1</code>. The single equal sign
+            indicates that we are setting a value to a variable. We
+            evaluate the final result of the calculations to the right
+            of the equal sign and set the variable to the left of that
+            equal sign.</p>
+            <h3 id="built-in-system-variables">Built-in system
+            variables</h3>
+            <ul>
+            <li>width, height (set by <em>size</em>)</li>
+            <li>mouseX, mouseY (location of mouse’s x and y
+            coordinates)</li>
+            <li>frameCount (the number of times draw has run)</li>
+            <li>displayWidth, displayHeight (size of your screen)</li>
+            <li>key (last key pressed)</li>
+            <li>keyCode (number representing a keypress)</li>
+            <li>keyPressed (a true/false boolean)</li>
+            <li>mousePressed ( a true/false boolean)</li>
+            </ul>
+            <h3 id="lets-get-random">Let’s get random</h3>
+            <pre><code>random(min,max);</code></pre>
+            <p><strong>Important: random is a float by
+            default!</strong></p>
+            <pre><code>float crazyNum = random(1,300); //picks a float between 1 and 300</code></pre>
+            <p>To get an integer, <strong>cast</strong> it (aka
+            converting). Casting is the process of converting between
+            types.</p>
+            <pre><code>int crazyNum = int(random(1,300));</code></pre>
+            <p>Check the use of nested parenthesis to indicate the order
+            of execution. Start in the inner parenthesis and work
+            out.</p>
+            <p>Why do we have different variable types?</p>
+            <ul>
+            <li>Because they take up different amounts of memory</li>
+            <li>Because we want precision</li>
+            </ul>
+            <p>Not every language has these same goals.</p>
+            <h2 id="debugging-with-println">Debugging with println</h2>
+            <p>When working with variables, it can be easy to get
+            confused. Many times you are expecting certain variables but
+            you’re seeing something else on your screen. One way to try
+            to figure out what is going on is just to print out what
+            value your variable is currently set to.</p>
+            <p>Example:</p>
+            <pre><code>float x;
+
+function setup(){
+  size(500,500);
+}
+
+function draw(){
+  x = random(500);
+  ellipse(x,250,30,30);
+  println(&quot;x is currently: &quot;+x); 
+  //this prints out the text and the current value of x
+}</code></pre>
+            <h2 id="conditionals">Conditionals</h2>
+            <p>Conditionals are yes/no questions! Depending on the
+            answer, there may be follow-up code that is executed.</p>
+            <p><strong>IF</strong> <em>this</em> is true, <em>then</em>
+            do this!</p>
+            <pre><code>if (mouseX &lt; 100){
+  println(&quot;Your cursor is on the left.&quot;)
+}</code></pre>
+            <h3 id="choices">Choices</h3>
+            <ul>
+            <li>If, Else, Elif</li>
+            </ul>
+            <p>Example with else:</p>
+            <pre><code>if (candles &lt; 20){
+  println(&quot;Let&#39;s buy a box of candles for the birthday cake&quot;);
+} else {
+  println(&quot;I&#39;m over it. Let&#39;s just buy one of those number candles.&quot;);
+}</code></pre>
+            <p>Example with multiple options using else if:</p>
+            <pre><code>if (age &gt; 64){
+    println(&quot;You can retire.&quot;);
+} else if (age &gt; 18) {
+    println(&quot;You can vote.&quot;);
+} else {
+    println(&quot;You&#39;re in primary school.&quot;);
+}</code></pre>
+            <p>These are very limited options.</p>
+            <h3 id="logical-operators-and-or-not">Logical Operators
+            (AND, OR, NOT)</h3>
+            <h4 id="and">AND</h4>
+            <p>“If this is true AND that is true…”</p>
+            <p>And is <code>&amp;&amp;</code></p>
+            <p>Example</p>
+            <pre><code>if ((mouseX &gt; 0) &amp;&amp; (mouseX &lt; width)){
+  println(&quot;Our mouse is on the screen&quot;);
+} else {
+  println(&quot;The mouse is offscreen&quot;);
+}
+</code></pre>
+            <h4 id="or">OR</h4>
+            <p>“If this is true OR that is true…”</p>
+            <p>OR is <code>||</code></p>
+            <p>Press shift + the key above ENTER, on most keyboards.</p>
+            <p>Example:</p>
+            <pre><code>if ((temperature &lt; 32) || (temperature &gt; 100)){
+  println(&quot;This weather is really annoying!&quot;);
+}</code></pre>
+            <h4 id="not">Not</h4>
+            <p>Not is <code>!</code></p>
+            <p>Example:</p>
+            <pre><code>if (!mousePressed) {
+//this means &quot;if you are NOT pressing the mouse&quot;
+  background(255);
+} else {
+  background(0);
+}</code></pre>
+            <h1 id="homework">Homework</h1>
+            <h2 id="read-chapters-in-learning-processing">Read Chapters
+            in Learning Processing</h2>
+            <ul>
+            <li>4 (again, to make sure you understand variables)</li>
+            <li>5 (conditionals)</li>
+            <li>6 (new material on loops)</li>
+            </ul>
+            <h2 id="videos-to-watch">Videos to watch</h2>
+            <p><a
+            href="https://www.youtube.com/watch?v=B-ycSR3ntik&amp;list=PLRqwX-V7Uu6aFNOgoIMSbSYOkKNTo89uf">Variables</a></p>
+            <p><a
+            href="https://www.youtube.com/watch?v=wsI6N9hfW7E&amp;list=PLRqwX-V7Uu6YqykuLs00261JCqnL_NNZ_">Booleans</a></p>
+            <p><a
+            href="https://www.youtube.com/watch?list=PLRqwX-V7Uu6YqykuLs00261JCqnL_NNZ_&amp;time_continue=4&amp;v=mVq7Ms01RjA&amp;feature=emb_logo">Conditionals</a></p>
+            <p><a
+            href="https://www.youtube.com/watch?v=RtAPBvz6k0Y&amp;list=PLRqwX-V7Uu6bm-3M4Wntd4yYZGKwiKfrQ">While
+            Loops</a></p>
+            <p><a
+            href="https://www.youtube.com/watch?v=h4ApLHe8tbk&amp;list=PLRqwX-V7Uu6bm-3M4Wntd4yYZGKwiKfrQ&amp;index=3">For
+            Loops</a> &lt;— this one is important!</p>
+            <h2 id="programming-homework">Programming Homework</h2>
+            <h3 id="interactive-still-life-with-variables">Interactive
+            Still Life with variables</h3>
+            <ol type="1">
+            <li>Create a <a
+            href="https://en.wikipedia.org/wiki/Still_life">still
+            life</a>. Start by creating or arranging a tabletop
+            scene.</li>
+            <li>You may want to take a picture of it as a
+            reference.</li>
+            <li>Now carefully build this first version of the still life
+            in code. Upload this first version.</li>
+            <li>Next, make a copy and add in variables for distinctive
+            items in the scene.</li>
+            <li>You may want to add variables to change things like
+            color, x and y location.</li>
+            <li>Add a <code>void mousePressed(){  }</code> function that
+            changes these variables randomly when you click the mouse.
+            Make sure to choose starting and stopping numbers that make
+            sense for random. <code>random(low,high)</code>.</li>
+            </ol>
+            <p>Bonus info: - Play with transparency. If you add a fourth
+            value to color between 0 and 255 you can create opaque or
+            transparent (or somewhere in between) colors.</p>
+            <p>Example:</p>
+            <pre><code>fill(200,0,0,120) //semi-opaqe half-transparent red</code></pre>
+            <h3 id="bouncing-ball">Bouncing Ball</h3>
+            <p>Complete the bouncing ball we began in class. Have the
+            ball start from a random location (a random x and a random y
+            location). Then have it move. If it hits a wall, it should
+            bounce back.</p>
+            <p>Compress (zip) your program and upload to Moodle.</p>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>
