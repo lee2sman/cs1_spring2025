@@ -14,7 +14,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 </guid>
 <pubDate>
-Wed, 05 Feb 2025 00:00:00 -0500
+Tue, 11 Feb 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -42,7 +42,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 </guid>
 <pubDate>
-Wed, 05 Feb 2025 00:00:00 -0500
+Tue, 11 Feb 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -56,6 +56,34 @@ Today’s Schedule
 -   Variables
 -   Random
 -   Review HW
+]]>
+</description>
+</item>
+<item>
+<title>
+"Week 3 - Loops and Loops and Loops and Loops"
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
+</guid>
+<pubDate>
+Tue, 11 Feb 2025 00:00:00 -0500
+</pubDate>
+<description>
+<![CDATA[
+Today’s Schedule
+
+-   Review of variables and conditionals
+-   Boolean Variables
+-   Variables Scope
+-   Loops
+-   Build Pong
+-   Play Pong
+-   Review HW
+-   Check-ins and Coding
 ]]>
 </description>
 </item>

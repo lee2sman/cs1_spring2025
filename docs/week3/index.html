@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>"Week 3 - Loops and Loops and Loops and
+Loops"</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content=""Week 3 - Loops and Loops and
+Loops and Loops"" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>"Week 3 - Loops and Loops and Loops and Loops"</h1>
+            <p><em>Date: 2025-02-11</em></p>
+            <h2 id="todays-schedule">Today’s Schedule</h2>
+            <ul>
+            <li>Review of variables and conditionals</li>
+            <li>Boolean Variables</li>
+            <li>Variables Scope</li>
+            <li>Loops</li>
+            <li>Build Pong</li>
+            <li>Play Pong</li>
+            <li>Review HW</li>
+            <li>Check-ins and Coding</li>
+            </ul>
+            <h3 id="new-commands">New commands</h3>
+            <ul>
+            <li>constrain()</li>
+            </ul>
+            <p>Constrain limits a variable’s range.</p>
+            <ul>
+            <li>map()</li>
+            </ul>
+            <p>Map changes the range of a variable (or reverses it).</p>
+            <p>Example:</p>
+            <pre><code>background(map(mouseX,0,width,0,255));</code></pre>
+            <p>Another example:</p>
+            <pre><code>background(map(mouseX,0,width,255,0));</code></pre>
+            <h1 id="loops">Loops</h1>
+            <p>In previous classes we talked about coding iteratively.
+            Iteration is the process of repeating steps over and over.
+            Sometimes when we code we want to repeat an action again and
+            again. Sometimes when we code we want to repeat an action
+            again and again. Sometimes when we code we want to repeat an
+            action again and again. Sometimes when we code we want to
+            repeat an action again and again.</p>
+            <h3 id="question-why-do-we-need-loops">Question: Why do we
+            need loops?</h3>
+            <h3 id="two-main-kinds---for-loops-and-while-loops">Two main
+            kinds - FOR Loops and WHILE Loops</h3>
+            <h5 id="anatomy-of-a-while-loop">Anatomy of a while
+            loop</h5>
+            <pre><code>while (something == true) {
+  //do this
+}</code></pre>
+            <p><strong>Warning: Don’t get stuck in an infinite loop!
+            Make sure there is an exit condition</strong></p>
+            <p>Example</p>
+            <pre><code>int y = 10;
+
+while (y &lt; height){
+    rect(100, y, 100, 10);
+
+    y = y + 20;
+}</code></pre>
+            <h5 id="anatomy-of-a-for-loop">Anatomy of a for loop</h5>
+            <p>(Initialization; Test; Iterate Expression)</p>
+            <pre><code>for (int i = 0; i &lt; 100; i++){
+    println(i);
+}</code></pre>
+            <h2 id="when-to-use-an-if-statement-or-for-loop">When to use
+            an if statement or for loop</h2>
+            <p><strong>If you are testing whether something is
+            true</strong></p>
+            <p>When you are asking a question, use an if statement.</p>
+            <p>Examples: Is my ball off screen? Is the color black?</p>
+            <p><strong>If you need to make lots of things, use a for a
+            loop</strong></p>
+            <p>Examples: I need 300 circles.</p>
+            <h4
+            id="the-difference-between-a-loop-and-the-draw-cycle-repeating">The
+            difference between a loop and the draw cycle repeating</h4>
+            <h2 id="variable-scope">Variable Scope</h2>
+            <h3 id="local-vs-global-variables">Local vs Global
+            variables</h3>
+            <p>So far when we have written variables we have been
+            declaring them at the top of our program before our
+            <code>setup()</code>. When we create variables this way we
+            are creating <em>global</em> variables. Like the name global
+            implies, these are variables that can be used everywhere, at
+            any time. They are the easiest variables to use.</p>
+            <p>In addition to global variables are local variables. To
+            understand what this is, it’s important to understand what
+            we mean by the term <em>block</em> of code. In programming,
+            sections of our code can be broken down into chunks or
+            blocks. The code inside of <code>setup(){ }</code> is a
+            block of code. So is the code inside <code>draw(){  }</code>
+            and the code inside <code>mousePressed(){</code>.</p>
+            <h4 id="tldr">TL;DR</h4>
+            <p>Variables declared inside a block are local! They can
+            only be used inside that function.</p>
+            <p>Put your global variables at the top before setup!</p>
+            <p>Variables declared outside a function block are global.
+            They can be be used by all functions.</p>
+            <p><em>More info on local vs global variables can be found
+            in your book in Chapter 6 Section 5.</em></p>
+            <h3 id="building-a-more-complex-program-pong">Building a
+            more complex program: Pong</h3>
+            <p>We’ll build off our previous work with a ball that wraps
+            around our screen to turn it into a basic version of
+            Pong.</p>
+            <h4 id="wrapping">Wrapping</h4>
+            <p>How do we detect that our ball is off the screen? We need
+            to look at its x and y position. We can break this down into
+            4 checks with if statements.</p>
+            <ul>
+            <li>If our ball is offscreen to the left (the x position is
+            what?)</li>
+            <li>If our ball is offscreen to the right (the x position is
+            what?)</li>
+            <li>If our ball is offscreen to the top (the y position is
+            what?)</li>
+            <li>If our ball is offscreen to the bottom (the y position
+            is what?)</li>
+            </ul>
+            <pre><code>if (x &gt; width){ //if our ball&#39;s x is offscreen to the right
+  x = 0; //then we reset it to the left side of the screen
+}</code></pre>
+            <p>We can do this for all four sides.</p>
+            <h4 id="bouncing">Bouncing</h4>
+            <p>Now that we have our 4 if statements to detect if we have
+            hit the edge of the screen, we can modify our code to have
+            the ball bounce instead of wrap.</p>
+            <p>To do this, we need to modify our ball’s movement.</p>
+            <p>How do we move our ball to the right?</p>
+            <pre><code>x = x + 1;</code></pre>
+            <p>What if we want to move left?</p>
+            <pre><code>x = x - 1;</code></pre>
+            <p>We can make a variable called xspeed that can change at
+            different times.</p>
+            <pre><code>float x = 100;
+float xspeed = 1;
+  
+void draw(){
+  x = x + xspeed
+
+  if (x &gt; width){ //if offscreen to the right
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+  }
+}</code></pre>
+            <p>We also want to have the ball flip direction if it goes
+            offscreen to the left.</p>
+            <pre><code>if (x &lt; 0){ //if offscreen to the left
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+}</code></pre>
+            <p>This code is almost exactly the same.</p>
+            <p>It’s best practice to combine them together.</p>
+            <pre><code>if ((x &gt; width) || (x &lt; 0)){
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+}</code></pre>
+            <p>We can do this for the ball’s y value as well. <em>See
+            uploaded starter pong code for example</em>.</p>
+            <h4 id="controlling-the-player">Controlling the player</h4>
+            <p>We can use keyPressed() function to detect key
+            presses.</p>
+            <pre><code>void keyPressed(){
+  if (key == CODED){
+    if (keyCode == UP){
+      println(&quot;you&#39;ve pressed up&quot;);
+      //code to move up goes here
+    }
+  }
+}</code></pre>
+            <p>The variable keyCode is used to detect special keys such
+            as the arrow keys (UP, DOWN, LEFT, and RIGHT) as well as
+            ALT, CONTROL, and SHIFT. Info from the reference page on <a
+            href="https://processing.org/reference/keyCode.html">keyCode</a>.</p>
+            <p>When working with keyCodes it is useful to first check to
+            make sure a key is coded. We do this by nesting our code
+            inside an if statement to make sure the key is coded.</p>
+            <p>How do you move the player up? Decrease the player’s Y.
+            And vice versa for moving down.</p>
+            <h1 id="homework">Homework</h1>
+            <ul>
+            <li><p>Re-read Chapter 6 - Loops</p></li>
+            <li><p>Read Chapter 7 - Functions</p></li>
+            <li><p>see Moodle for Pong homework assignment to create a
+            complete 2 player version.</p></li>
+            </ul>
+            <p>Start with our starter “boring pong” code from class.</p>
+            <ol type="1">
+            <li><p>Add a score variable. Increase the score every time
+            you hit the ball.</p></li>
+            <li><p>Add a lives variable. Start with 3 lives. When you
+            die, cover the screen in black. <em>(Advanced: make an
+            interesting kill/death screen).</em></p></li>
+            <li><p>When you hit the ball, make the ball change to a new
+            random color. Make the ball speed get a bit faster.
+            <em>(Advanced: try using some randomness to make the ball
+            more unpredictable, but don’t make it too random or it gets
+            too hard to play).</em></p></li>
+            <li><p>Add a second player. Add a score for the second
+            player. Have a different ending (maybe a different screen
+            background color?) for each of the different players’
+            death.</p></li>
+            <li><p><em>Advanced students: decrease a player’s paddle
+            height each time they miss the ball. Add a win screen if
+            either player gets a score of 10.</em></p></li>
+            <li><p>OPTIONAL bonus for all: make an interesting design.
+            Change colors, sizes or try out other changes to make the
+            gameplay or design more unique.</p></li>
+            </ol>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>
