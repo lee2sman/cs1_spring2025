@@ -193,35 +193,82 @@ void draw(){
             inside an if statement to make sure the key is coded.</p>
             <p>How do you move the player up? Decrease the player’s Y.
             And vice versa for moving down.</p>
-            <h1 id="homework">Homework</h1>
+            <h2 id="homework">Homework</h2>
+            <h2 id="learning-processing-book">Learning Processing
+            Book</h2>
             <ul>
-            <li><p>Re-read Chapter 6 - Loops</p></li>
-            <li><p>Read Chapter 7 - Functions</p></li>
-            <li><p>see Moodle for Pong homework assignment to create a
-            complete 2 player version.</p></li>
+            <li>Read Chapter 6 - Loops</li>
+            <li>Read Chapter 7 - Functions</li>
             </ul>
-            <p>Start with our starter “boring pong” code from class.</p>
+            <h2 id="videos">Videos</h2>
+            <ul>
+            <li>Watch <a
+            href="https://codingtrain.github.io/website-archive/Courses/learning-processing/6-loops/6.1-while-loop.html">While
+            Loop</a></li>
+            <li>Watch <a
+            href="https://codingtrain.github.io/website-archive/Courses/learning-processing/6-loops/6.3-for-loop.html">For
+            Loop</a></li>
+            <li>Watch <a
+            href="https://codingtrain.github.io/website-archive/Courses/learning-processing/6-loops/6.5-loop-vs-draw.html">Loop
+            Vs Draw</a></li>
+            <li>Watch <a
+            href="https://codingtrain.github.io/website-archive/Courses/learning-processing/6-loops/6.4-variable-scope.html">Variable
+            Scope</a> (Global vs Local variables)</li>
+            </ul>
+            <h2 id="pong-part-1">Pong: Part 1</h2>
+            <p>We’re building out <a
+            href="https://www.youtube.com/watch?v=fiShX2pTz9A">Pong</a>
+            over two weeks. We’ll start with a 1 player version.</p>
+            <p>You should probably do these in order. Try to get as many
+            of them implemented as you can.</p>
+            <p>The screen size is 600 by 400.</p>
             <ol type="1">
-            <li><p>Add a score variable. Increase the score every time
-            you hit the ball.</p></li>
-            <li><p>Add a lives variable. Start with 3 lives. When you
-            die, cover the screen in black. <em>(Advanced: make an
-            interesting kill/death screen).</em></p></li>
-            <li><p>When you hit the ball, make the ball change to a new
-            random color. Make the ball speed get a bit faster.
-            <em>(Advanced: try using some randomness to make the ball
-            more unpredictable, but don’t make it too random or it gets
-            too hard to play).</em></p></li>
-            <li><p>Add a second player. Add a score for the second
-            player. Have a different ending (maybe a different screen
-            background color?) for each of the different players’
-            death.</p></li>
-            <li><p><em>Advanced students: decrease a player’s paddle
-            height each time they miss the ball. Add a win screen if
-            either player gets a score of 10.</em></p></li>
-            <li><p>OPTIONAL bonus for all: make an interesting design.
-            Change colors, sizes or try out other changes to make the
-            gameplay or design more unique.</p></li>
+            <li>Get your ball to bounce around the screen. Make sure
+            that when the ball hits a side it bounces. The ball should
+            start with a random x-speed and y-speed.</li>
+            <li>Next add: Every time the ball bounces, change it to a
+            random color.</li>
+            <li>Next add: Every time the ball bounces, change it to a
+            random size. Be sure to specify a minimum and maximum
+            size.</li>
+            <li>Next add: Create a <em>score</em> variable. Each time
+            the ball hits the right side, increase the score.</li>
+            <li>Next add: Add a taller rectangle on the left side of the
+            screen to serve as the player paddle. If the ball hits the
+            player, it should bounce back to the right.</li>
+            <li>Look up the <a
+            href="https://processing.org/reference/keyCode.html">keyPressed()</a>
+            function in the Processing Reference site. In the example
+            code at the bottom it shows how to check for UP and DOWN
+            arrow keys. Add a keyPressed function to your code and
+            modify your code so that when a player presses up, the
+            player’s paddle moves up. When you press down, the player’s
+            paddle moves down.</li>
+            <li>Finally: add a lives variable. Start with 10 lives. When
+            the ball hits the left wall (because the player missed it),
+            decrease one life. If the lives go below 1, draw a red
+            background color to cover the screen (which will indicate
+            the player has lost).</li>
+            </ol>
+            <p>GOOD LUCK!</p>
+            <h2 id="optional-advanced-homework">OPTIONAL Advanced
+            homework</h2>
+            <p>IF you are a math/computer science student or considering
+            to be one, or need extra challenges, also implement:</p>
+            <ol type="1">
+            <li>Add a second player on the right side.</li>
+            <li>Have W and S keys control the left player. UP and DOWN
+            arrows control the right player.</li>
+            <li>Each player should have their own starting 10
+            lives.</li>
+            <li>If either player misses the ball (and it hits the wall
+            on their side), decrease 1.</li>
+            <li>If a player’s life goes below 1, make that side of the
+            screen red (showing the player has lost) and stop the ball
+            from moving.</li>
+            <li>IF YOU DO ALL OF THAT and need more challenge: make the
+            ball get a little bit faster each time a player hits
+            it.</li>
             </ol>
       <footer> <hr>
 
