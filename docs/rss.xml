@@ -14,7 +14,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 </guid>
 <pubDate>
-Wed, 12 Feb 2025 00:00:00 -0500
+Mon, 17 Feb 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -42,7 +42,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 </guid>
 <pubDate>
-Wed, 12 Feb 2025 00:00:00 -0500
+Mon, 17 Feb 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -70,7 +70,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
 </guid>
 <pubDate>
-Wed, 12 Feb 2025 00:00:00 -0500
+Mon, 17 Feb 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -84,6 +84,33 @@ Today’s Schedule
 -   Play Pong
 -   Review HW
 -   Check-ins and Coding
+]]>
+</description>
+</item>
+<item>
+<title>
+"Week 4 - Functions"
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.md
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.md
+</guid>
+<pubDate>
+Mon, 17 Feb 2025 00:00:00 -0500
+</pubDate>
+<description>
+<![CDATA[
+Today
+
+-   Pong Redux
+-   What is a function?
+-   System-defined functions
+-   User-defined functions
+-   Arguments and Parameters
+-   Return
+-   hw: make an office hour appointment
 ]]>
 </description>
 </item>

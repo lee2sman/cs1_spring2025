@@ -1,3 +1,6 @@
+["Week 4 - Functions" ](week4/)  
+2025-02-18  
+
 ["Week 3 - Loops and Loops and Loops and Loops"](week3/)  
 2025-02-11  
 

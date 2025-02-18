@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>"Week 4 - Functions" </title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content=""Week 4 - Functions" " />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>"Week 4 - Functions" </h1>
+            <p><em>Date: 2025-02-18</em></p>
+            <h2 id="today">Today</h2>
+            <ul>
+            <li>Pong Redux</li>
+            <li>What is a function?</li>
+            <li>System-defined functions</li>
+            <li>User-defined functions</li>
+            <li>Arguments and Parameters</li>
+            <li>Return</li>
+            <li>hw: make an office hour appointment</li>
+            </ul>
+            <h3 id="everything-weve-covered-so-far">Everything we’ve
+            covered so far</h3>
+            <ul>
+            <li>variables
+            <ul>
+            <li>types (int, float, char, boolean)</li>
+            <li>random(min,max);
+            <ul>
+            <li>it is a float</li>
+            </ul></li>
+            <li>casting from one variable type to another</li>
+            </ul></li>
+            <li>Conditionals
+            <ul>
+            <li>if statements
+            <ul>
+            <li>if, else if, else</li>
+            </ul></li>
+            </ul></li>
+            <li>Loops</li>
+            <li>Logical operators (and, or, not)</li>
+            <li>New: functions</li>
+            </ul>
+            <h2 id="pong-redux">Pong Redux</h2>
+            <p>We can make a variable called xspeed that can change at
+            different times.</p>
+            <pre><code>float x = 100;
+float xspeed = 1;
+  
+void draw(){
+  x = x + xspeed
+
+  if (x &gt; width){ //if offscreen to the right
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+  }
+}</code></pre>
+            <p>We also want to have the ball flip direction if it goes
+            offscreen to the left.</p>
+            <pre><code>if (x &lt; 0){ //if offscreen to the left
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+}</code></pre>
+            <p>This code is almost exactly the same.</p>
+            <p>It’s best practice to combine them together.</p>
+            <pre><code>if ((x &gt; width) || (x &lt; 0)){
+    xspeed = xspeed * -1; 
+    //flips our xspeed between a negative and positive number
+}</code></pre>
+            <p>We can do this for the ball’s y value as well. <em>See
+            uploaded starter pong code for example</em>.</p>
+            <h4 id="controlling-the-player">Controlling the player</h4>
+            <p>We can use keyPressed() function to detect key
+            presses.</p>
+            <pre><code>void keyPressed(){
+  if (key == CODED){
+    if (keyCode == UP){
+      println(&quot;you&#39;ve pressed up&quot;);
+      //code to move up goes here
+    }
+  }
+}</code></pre>
+            <p>The variable keyCode is used to detect special keys such
+            as the arrow keys (UP, DOWN, LEFT, and RIGHT) as well as
+            ALT, CONTROL, and SHIFT. Info from the reference page on <a
+            href="https://processing.org/reference/keyCode.html">keyCode</a>.</p>
+            <p>When working with keyCodes it is useful to first check to
+            make sure a key is coded. We do this by nesting our code
+            inside an if statement to make sure the key is coded.</p>
+            <p>How do you move the player up? Decrease the player’s Y.
+            And vice versa for moving down.</p>
+            <h2 id="functions">Functions</h2>
+            <p>Functions are chunks of code that go together. They are
+            <strong>modular</strong> and <strong>reusable</strong>!</p>
+            <p>You can think of a function as a subsection of code for a
+            specific purpose. This helps you break your code down into
+            manageable chunks, so the logic is clearer.</p>
+            <p>You can re-use these chunks as many times as you
+            want.</p>
+            <p>There are two uses of the word function.</p>
+            <p>For example, <em>ellipse()</em> is a function we can use.
+            Someone wrote the code underlying this function so that we
+            can call an ellipse and draw an ellipse to the screen.</p>
+            <p>We also can create our own <em>user-defined</em>
+            functions. These are functions we write ourselves.</p>
+            <p>Just creating a function does not run that function. We
+            define a function, and we must also <em>call</em> that
+            function to use it.</p>
+            <div class="sourceCode" id="cb5"><pre
+            class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">setup</span><span class="op">(){</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">size</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span><span class="dv">400</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">draw</span><span class="op">(){</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">myFunction</span><span class="op">();</span> <span class="co">//we call our code here</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">myFunction</span><span class="op">(){</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">//code goes in here</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+            <p>In this above program our setup runs once and creates our
+            canvas. Then draw begins running. It sees a function call
+            for <em>myFunction()</em> and then jumps down to <em>void
+            myFunction(){ … }</em> to run the function code. After it
+            runs the function, it jumps back to the following line of
+            draw.</p>
+            <p>Generally it’s good practice to give your functions clear
+            names, like <em>void moveBall(){ … }</em>.</p>
+            <p>So a simple program may look like this:</p>
+            <ul>
+            <li>start with global variables</li>
+            <li>then your setup function</li>
+            <li>then your looping draw function, which typically will
+            call other functions</li>
+            <li>then you define all of your user-defined functions. Give
+            them names that describe what they do.</li>
+            </ul>
+            <h3 id="why-use-functions">Why use functions?</h3>
+            <p>When you code your program using functions you can slowly
+            build up your program will smaller modular parts, as if you
+            are snapping together different functionality with legos. As
+            you complete a function you can add a function call into
+            your draw (for example) and test it. If the function doesn’t
+            work, or you are getting bugs that you need to find, you can
+            always comment out (turn off) a function call. This makes it
+            easier to debug.</p>
+            <p>As your program grows more complex you can add more
+            functions or update functions. This helps you build up more
+            complex programs without getting lost in the code.</p>
+            <h2 id="arguments">Arguments!</h2>
+            <p>In a programming context, arguments are values that are
+            passed into a function. They are input that will be used by
+            a function. Not all functions have arguments (meaning that
+            not all functions need an input).</p>
+            <p>Example</p>
+            <div class="sourceCode" id="cb6"><pre
+            class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>function <span class="fu">drawToCorner</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">){</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//the first argument gets passed to x as an int. </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">//The second gets passed to y as an int.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">line</span><span class="op">(</span>x<span class="op">,</span> y<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span> <span class="co">//draws a line from x,y to the top left corner</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">drawToCorner</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span><span class="dv">200</span><span class="op">);</span> <span class="co">// 100 gets passed to x, 200 passed to y</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">drawToCorner</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">120</span><span class="op">);</span> <span class="co">//50 gets passed to x, 120 passed to y</span></span></code></pre></div>
+            <p>This is not an interesting example, but it shows how to
+            pass in arguments.</p>
+            <h3 id="more-about-arguments">More about Arguments</h3>
+            <ul>
+            <li>You must pass as many arguments as defined in the
+            function’s parameters</li>
+            <li>Your argument’s types (the value you pass) must match
+            the function’s parameter types</li>
+            <li>You can pass in literal values or variables</li>
+            </ul>
+            <h3 id="stopping-draw-with-noloop">Stopping Draw with
+            noLoop();</h3>
+            <p><em>noLoop();</em> stops draw() so that it only executes
+            once</p>
+            <p>You can restart it with <em>loop()</em></p>
+            <h2 id="return-types">Return Types</h2>
+            <p>Today we will answer the question: What does
+            <strong>void</strong> mean?</p>
+            <h3 id="parts-of-a-function">Parts of a function</h3>
+            <ol type="1">
+            <li>Return type</li>
+            <li>Function name</li>
+            <li>Argument(s)</li>
+            </ol>
+            <p>Return Type - what kind of result you want out of this
+            function. A type is an integer, float, char, etc.</p>
+            <p>Name - self-explanatory. You give it a name of your
+            choice.</p>
+            <p>Arguments - Optional data input to a function to be used
+            by that function.</p>
+            <p>Here is a function:</p>
+            <div class="sourceCode" id="cb7"><pre
+            class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>returnType <span class="fu">functionName</span><span class="op">(</span>parameters<span class="op">){</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">//code of function</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+            <p>The <em>returnType</em> is the type of output it expects
+            to receive. If no output is needed, the return type is
+            <em>void</em>.</p>
+            <p>Example</p>
+            <div class="sourceCode" id="cb8"><pre
+            class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">multiplyMe</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">){</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> total <span class="op">=</span> a <span class="op">*</span> b<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total<span class="op">;</span> <span class="co">//A RETURN STATEMENT IS REQUIRED!</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> gimmeTheNum <span class="op">=</span> <span class="fu">multiplyMe</span><span class="op">(</span><span class="dv">7</span><span class="op">,</span> <span class="dv">6</span><span class="op">);</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span><span class="op">(</span>gimmeTheNum<span class="op">);</span> <span class="co">//42</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newNum <span class="op">=</span> <span class="fu">multiplyMe</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span><span class="op">(</span>newNum<span class="op">);</span> <span class="co">//200</span></span></code></pre></div>
+            <h2 id="homework">Homework</h2>
+            <h3 id="hw-reading-from-learning-processing">HW Reading from
+            Learning Processing</h3>
+            <ul>
+            <li>Review Chapter 7 - Functions if you need a review</li>
+            <li>Chapter 8 - Objects</li>
+            <li>Chapter 9 - Arrays</li>
+            </ul>
+            <h2 id="homework-challenge-simple-ai">Homework Challenge:
+            Simple AI</h2>
+            <p>For this challenge, you will be coding a simple AI
+            character that will chase a <em>player</em>.</p>
+            <p>The player is a creature in a hostile environment. It
+            needs to collect apples in order to survive. There is an
+            enemy creature that is trying to capture the player. It
+            continually moves toward the player no matter what the
+            player does. If it captures the player by moving into its
+            space, it has vanquished the player and the <em>game</em>
+            ends.</p>
+            <ol type="1">
+            <li>Write the program functionality needed out in
+            pseudocode. What are the order of operations/flow? Draw it
+            as a flow chart if that would help.</li>
+            <li>Start by creating a simple stand-in for a player, such
+            as a simple shape with color. What variables do you need?
+            Are they global or local? What type are these
+            variables?</li>
+            <li>Now do the same for the “enemy AI.” Choose a shape and
+            color that will contrast with the player and create needed
+            variables.</li>
+            <li>Add interaction with mouse keys. When you hold down a
+            key, move the player. Add Left-Right-Up-Down arrow keys.
+            Make sure you code this so the player is able to continously
+            move as long as a key is pressed down.</li>
+            <li>Now have the enemy AI chase the player. If the player is
+            to the left, move the enemy left. When the player is right,
+            move the enemy right. When the player is above, move the
+            enemy up. When player is below, move the enemy down. Alter
+            the enemy’s speed so that the player has at least a bit of a
+            chance to get away.</li>
+            <li>When the enemy has reached the player, make the screen
+            red. Game over.</li>
+            </ol>
+            <h3 id="advanced">Advanced:</h3>
+            <p><em>This section is optional. It is intended for math/CS
+            majors and anyone else interested.</em></p>
+            <p>A. Make sure you’ve implemented detecting keypress in
+            draw so that the player is moving as long as a valid arrow
+            key is held down. <em>–oops, Lee’s note: I already required
+            this above. Sorry</em></p>
+            <p>B. Add in a reset() function so that when the player is
+            captured, the game starts over.</p>
+            <p>C. Add in a bat. The bat moves around to an adjacent
+            space randomly each time draw runs. If it touches the
+            player, the bat drops the player at a random position on the
+            screen (it could even be on top of the monster!) and then
+            randomizes its own location and appears somewhere else on
+            screen.</p>
+            <p>D. Add a goal, a green apple, randomly placed at start.
+            Create a score variable. When the player reaches the green
+            apple their score increases by 1. Then move its location and
+            draw the apple somewhere else randomly on the level. And
+            lastly, speed up the enemyAI by 1!</p>
+            <p>If the player is captured, use println to print out the
+            final score and reset the score as the game begins
+            again.</p>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>
