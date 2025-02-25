@@ -1,3 +1,6 @@
+["Week 5 - Timers and Arrays"](week5/)  
+2025-02-25  
+
 ["Week 4 - Functions" ](week4/)  
 2025-02-18  
 

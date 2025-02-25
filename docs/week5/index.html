@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>"Week 5 - Timers and Arrays"</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content=""Week 5 - Timers and
+Arrays"" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>"Week 5 - Timers and Arrays"</h1>
+            <p><em>Date: 2025-02-25</em></p>
+            <h2 id="todays-schedule">Today’s Schedule</h2>
+            <ul>
+            <li>Check-in/Review
+            <ul>
+            <li>functions</li>
+            </ul></li>
+            <li>Midterm info</li>
+            <li>Review simple AI homework</li>
+            <li>Timers with millis()</li>
+            <li>Arrays</li>
+            </ul>
+            <h3 id="midterm-exam">Midterm Exam</h3>
+            <p>In-person exam on March 19. Relax! We will have a study
+            sheet. Your exam and project are together worth 25%.</p>
+            <p>Subjects to review:</p>
+            <ul>
+            <li>comments</li>
+            <li>variables</li>
+            <li>types</li>
+            <li>randomness</li>
+            <li>basic functions</li>
+            <li>println debugging</li>
+            <li>conditionals</li>
+            <li>loops</li>
+            <li>functions</li>
+            <li>arguments</li>
+            <li>return</li>
+            <li>translation, rotation, pushMatrix/popMatrix</li>
+            <li>timer with millis()</li>
+            <li>classes and objects</li>
+            <li>arrays</li>
+            </ul>
+            <h2 id="timer-functionality-using-millis">Timer
+            functionality using millis()</h2>
+            <h2 id="lets-build-a-timer">Let’s build a timer</h2>
+            <p>We need two variables: - a variable to hold the present
+            time - a variable that stands for the amount of time to wait
+            until alarm goes off</p>
+            <p>Processing has the <em>millis()</em> command which always
+            returns the number of milliseconds since our program began.
+            1000 milliseconds equals 1 second.</p>
+            <ul>
+            <li>How many milliseconds in a 30 second timer?</li>
+            <li>How many milliseconds in an hour?</li>
+            </ul>
+            <pre><code>//Basic timer
+//timer goes off after 3 seconds
+int wait = 3000; //wait 3 seconds (3000 millis)
+
+void setup(){
+  size(200,200);
+}
+
+void draw(){
+  if(millis() &gt; wait){
+    println(&quot;ALARM!&quot;); //will keep printing in the loop
+  }
+}</code></pre>
+            <p>To answer: why does it repeatedly print “ALARM” after 3
+            seconds?</p>
+            <p>How would we have a timer go off every X seconds?</p>
+            <pre><code>//Basic timer
+//timer goes off every 5 seconds
+int wait = 5000; //wait 5 seconds (5000 millis)
+
+void setup(){
+  size(200,200);
+}
+
+void draw(){
+  //check the difference between now and the previously stored time is greater than the wait interval
+  if(millis() &gt; wait){
+    println(&quot;ALARM!&quot;);
+    wait = wait + 5000; //Add 5 more seconds to the waiting time
+  }
+}</code></pre>
+            <h1 id="arrays">Arrays</h1>
+            <p>What are they? Arrays are <strong>lists</strong>. An
+            array is a <em>list</em> of <em>data</em> stored under the
+            same name. You can create an array of any type of data. When
+            you create an array, you can access any of the data stored
+            in that array. We call the location of a piece of data its
+            <strong>index</strong>.</p>
+            <p>The first location in an array is always 0. We call that
+            position <code>[0]</code>. The second location is
+            <code>[1]</code>. Etc.</p>
+            <p><strong>IMPORTANT</strong>: Each array has a variable
+            <code>length</code> that returns the total number of
+            elements in the array. Keep in mind that arrays start
+            counting at 0 so an array with 10 elements in (a length of
+            10) will go from location <code>[0]</code> up to location
+            <code>[9]</code>!</p>
+            <pre><code>//from Processing tutorials - Arrays
+
+int[] x = { 
+  50, 61, 83, 69, 71, 50, 29, 31, 17, 39
+};
+
+fill(0);
+// Read one array element each time through the FOR loop
+for (int i = 0; i &lt; x.length; i++) {
+  rect(0, i*10, x[i], 8);
+}</code></pre>
+            <figure>
+            <img src="../images/array.png" alt="array example" />
+            <figcaption aria-hidden="true">array example</figcaption>
+            </figure>
+            <h3 id="define-an-array">Define an Array</h3>
+            <p>You define an array similar to other data types with the
+            addition of brackets [ and ]. When you declare an array you
+            specify what kind of data it will hold. An array can only
+            hold a single data type.</p>
+            <h3 id="three-ways-to-define-an-array">Three ways to define
+            an array</h3>
+            <pre><code>int[] ages; //declaring an array for BTS members&#39; ages
+
+void setup(){
+  size(100,100);
+  ages = new int[7]; //create space in memory for 7 values
+  ages[0] = 27;  //assign
+  ages[1] = 26;
+  ages[2] = 25;
+  ages[3] = 25;
+  ages[4] = 24;
+  ages[5] = 24;
+  ages[6] = 22;
+}</code></pre>
+            <p><strong>OR</strong></p>
+            <pre><code>int[] ages = new int[7]; //declare and create 
+
+void setup(){
+  size(100,100);
+  ages[0] = 27;  //assign
+  ages[1] = 26;
+  ages[2] = 25;
+  ages[3] = 25;
+  ages[4] = 24;
+  ages[5] = 24;
+  ages[6] = 22;
+}</code></pre>
+            <p><strong>OR</strong></p>
+            <pre><code>int[] ages_of_BTS_members = {27, 26, 25, 25, 24, 24, 22};
+//declare, create and assign all in one
+
+void setup(){
+  size(100,100);
+}</code></pre>
+            <h3 id="name-array-example">Name array example</h3>
+            <pre><code>String[] names = {&quot;Owen&quot;,&quot;Zev&quot;,&quot;Anthony&quot;,&quot;Frankie&quot;,&quot;Alexander&quot;,&quot;Brock&quot;,&quot;Jake&quot;,&quot;Sofia&quot;,&quot;Sergio&quot;,&quot;Tiffany&quot;,&quot;Maya&quot;,&quot;Markus&quot;,&quot;Allan&quot;,&quot;Khalid&quot;};
+
+void setup(){
+  size(100,100);
+  println(&quot;Total students: &quot;+names.length);
+  println(&quot;The first student: &quot;+names[0]);
+  println(&quot;The last student: &quot;+names[names.length-1]);
+  //question: why do we specify name.length - 1?
+}</code></pre>
+            <h3 id="in-class-challenge">in-class challenge</h3>
+            <p>How do pick a random student name from the list?</p>
+            <h3 id="resources">Resources</h3>
+            <ul>
+            <li>More about <a
+            href="https://processing.org/reference/Array.html">arrays</a>
+            in the Processing reference.</li>
+            <li>An additional <a
+            href="https://processing.org/tutorials/arrays/">chapter
+            about arrays</a> from the book <em>Processing: A Programming
+            Handbook for Visual Designers and Artists</em>.</li>
+            </ul>
+            <h2 id="using-loops-to-initialize-an-array">Using loops to
+            initialize an array</h2>
+            <p>Let’s say we wanted to roll 5 dice.</p>
+            <pre><code>int[] die = new int[5];
+die[0] = random(1,7);
+die[1] = random(1,7);
+die[2] = random(1,7);
+die[3] = random(1,7);
+die[4] = random(1,7);
+die[5] = random(1,7);</code></pre>
+            <p>Instead, let’s use a loop:</p>
+            <pre><code>int [] die = new int[5];
+
+for (int i = 0; i &lt; die.length; i++){
+    die[i] = int(random(1,7)); 
+    //must convert from float to int. random produces floats!
+}</code></pre>
+            <p>Remember <code>.length</code> tells us how long the array
+            is</p>
+            <h4 id="in-class">In-class</h4>
+            <ul>
+            <li><p>Create an array of 1000 floats. Initialize every
+            element with random number between 0 and 10.</p></li>
+            <li><p>Create an array of 10 integers. Add to each number
+            the number that follows in the array. Skip the last
+            number.</p></li>
+            <li><p>Create and initialize an array of 100 integers.
+            Calculate the sum of all elements in the array.</p></li>
+            </ul>
+            <h3 id="more-on-arrays">More on arrays</h3>
+            <ul>
+            <li>Arrays are declared similarly to other data types but
+            use a bracket to indicate a list of elements.</li>
+            <li>After declaring an array, use <code>new</code> to create
+            the array. <code>data = new int[5];</code></li>
+            <li>Array’s individual elements may have their value
+            changed, but you cannot change the length of the array.</li>
+            </ul>
+            <h1 id="watch">Watch</h1>
+            <p>Watch The Coding Train videos on Arrays. - <a
+            href="https://www.youtube.com/watch?v=NptnmWvkbTw">What is
+            an Array</a> - <a
+            href="https://www.youtube.com/watch?v=47JBVxCWXJA">Declare,
+            Initialize and Use an Array</a></p>
+            <h2 id="midterm-project">Midterm project</h2>
+            <p>Midterm project is due in March 19 (3 weeks).</p>
+            <h3 id="tamagotchi">Tamagotchi</h3>
+            <p><img src="../images/tamagotchi.jpg"
+            alt="Tamagotchi" /><br />
+            <em>Tamagotchi image by <a
+            href="https://en.wikipedia.org/wiki/Tamagotchi#/media/File:Tamagotchi_0124_ubt.jpeg">Tomasz
+            Sienicki</a></em></p>
+            <p>We are a little over a third of the way through the
+            semester and have come far in our programming knowledge. We
+            have covered variables and types, conditionals, loops,
+            functions, translations, interaction through keypresses and
+            the mouse, classes and objects. Next week we will add in
+            arrays to complete the foundations. Taking the totality of
+            what we’ve learned so far our midterm project is to code a
+            <a
+            href="https://en.wikipedia.org/wiki/Tamagotchi">Tamagotchi</a>,
+            type of <a
+            href="https://en.wikipedia.org/wiki/Digital_pet">digital
+            pet</a> such as a <a
+            href="https://en.wikipedia.org/wiki/Furby">Furby</a> or <a
+            href="https://en.wikipedia.org/wiki/Artificial_human_companion">artificial
+            human companions</a>.</p>
+            <p><img src="../images/Green_Furby.jpg" alt="Furby" /><br />
+            <em>Green Furby By Original work: <a
+            href="https://en.wikipedia.org/w/index.php?curid=78700643">Hasbro,
+            Inc.Depiction: osde8info - Furby, CC BY-SA 2.0</a></em></p>
+            <p>Part A:</p>
+            <ol type="1">
+            <li>Sketch out what your Tamagotchi creature looks like in
+            its resting state. Note that your digital pet could be an
+            animal, robot, plant, etc.</li>
+            <li>Write down the various states your Tamagotchi can take.
+            For example: resting (neutral), sleeping, eating, crying,
+            playing a game, talking. Include at least 3 states and no
+            more than 5.</li>
+            <li>Draw a flow chart consisting of a finite state machine
+            diagram showing how it progresses between states. For
+            example, bored (fed) -&gt; happy. bored (not fed) -&gt;
+            crying. Indicate what causes it to change from one state to
+            another. This could be a timer or a trigger (“petting” a dog
+            by clicking on it, etc).</li>
+            </ol>
+            <p><img src="../images/fsm_dog.png"
+            alt="dog finite state machine" /><br />
+            <em>image by <a
+            href="https://learnyousomeerlang.com/finite-state-machines">Learn
+            You Some Erlang</a></em></p>
+            <p><img src="../images/pacman.gif"
+            alt="Pacman finite state machine" /><br />
+            <em>Pacman finite state machine by <a
+            href="https://oddwiring.com/">oddwiring</a></em></p>
+            <p>Weeks ahead: Part B will be to create your creature’s
+            Class in code. Part C will be to implement timers and
+            interactivity to build the state machine.</p>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>

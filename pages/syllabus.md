@@ -220,14 +220,14 @@ Free exchange of ideas and critique is encouraged and expected but I will not to
 - Dot operator, this, new
 - Creating a class (for a walker for example) vs. as a collection of independent data
 
-## Week 7 | Classes & Objects
+## Week 7 | Classes & Objects 
 
 - More practice with classes and object
 - Using objects in arrays
 - History of Computation
 - Binary
 
-## Week 8 | Midterm Project Review
+## Week 8 | Midterm Exam and Midterm Project Presentations
 
 ## Week 9 | Libraries
 
