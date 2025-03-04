@@ -7,7 +7,7 @@ title: Midterm Practice Questions
 
 What are the purpose of code comments?
 
-What are data types?
+What are variable types?
 
 What is an algorithm?
 
@@ -77,7 +77,7 @@ int c = random(20,100);
 
 ```
 float findAverage(float a, float b, float c){
-  return (a+b+c)/3
+  return (a+b+c)/3;
 }
 
 
