@@ -5,7 +5,7 @@
 <description>Computer Science 1, Spring 2025 at Purchase College.</description>
 <item>
 <title>
-"Week 1 - Introduction"
+Week 1 - Introduction
 </title>
 <link>
 https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
@@ -14,7 +14,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.md
 </guid>
 <pubDate>
-Tue, 25 Feb 2025 00:00:00 -0500
+Tue, 04 Mar 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -33,7 +33,7 @@ Introduction
 </item>
 <item>
 <title>
-"Week 2 - Variables and Conditionals"
+Week 2 - Variables and Conditionals
 </title>
 <link>
 https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
@@ -42,7 +42,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.md
 </guid>
 <pubDate>
-Tue, 25 Feb 2025 00:00:00 -0500
+Tue, 04 Mar 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -61,7 +61,7 @@ Today’s Schedule
 </item>
 <item>
 <title>
-"Week 3 - Loops and Loops and Loops and Loops"
+Week 3 - Loops and Loops and Loops and Loops
 </title>
 <link>
 https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
@@ -70,7 +70,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.md
 </guid>
 <pubDate>
-Tue, 25 Feb 2025 00:00:00 -0500
+Tue, 04 Mar 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -89,7 +89,7 @@ Today’s Schedule
 </item>
 <item>
 <title>
-"Week 4 - Functions"
+Week 4 - Functions
 </title>
 <link>
 https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.md
@@ -98,7 +98,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.md
 </guid>
 <pubDate>
-Tue, 25 Feb 2025 00:00:00 -0500
+Tue, 04 Mar 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -116,7 +116,7 @@ Today
 </item>
 <item>
 <title>
-"Week 5 - Timers and Arrays"
+Week 5 - Timers and Arrays
 </title>
 <link>
 https://leetusman.com/cs1_spring2025/posts/2025-02-25-week5.md
@@ -125,7 +125,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-25-week5.md
 https://leetusman.com/cs1_spring2025/posts/2025-02-25-week5.md
 </guid>
 <pubDate>
-Tue, 25 Feb 2025 00:00:00 -0500
+Tue, 04 Mar 2025 00:00:00 -0500
 </pubDate>
 <description>
 <![CDATA[
@@ -139,6 +139,61 @@ Today’s Schedule
 -   Arrays
 
 Midterm Exam
+]]>
+</description>
+</item>
+<item>
+<title>
+Midterm Practice Questions
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-03-04-midterm-practice.md
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-03-04-midterm-practice.md
+</guid>
+<pubDate>
+Tue, 04 Mar 2025 00:00:00 -0500
+</pubDate>
+<description>
+<![CDATA[
+Short Questions
+
+What are the purpose of code comments?
+
+What are data types?
+
+What is an algorithm?
+
+What is an iteration?
+]]>
+</description>
+</item>
+<item>
+<title>
+Week 6 - Classes and Objects
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-03-04-week6.md
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-03-04-week6.md
+</guid>
+<pubDate>
+Tue, 04 Mar 2025 00:00:00 -0500
+</pubDate>
+<description>
+<![CDATA[
+Today:
+
+-   midterm review
+-   classes and objects
+-   Constructor
+-   member variables (attributes)
+-   methods
+-   Dot operator, this, new
+-   build Frogger
+-   finite state machine
 ]]>
 </description>
 </item>

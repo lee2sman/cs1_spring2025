@@ -4,10 +4,10 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="date" content="" />
-            <title>Week 5 - Timers and Arrays</title>
+            <title>"Week 7 - Arrays" </title>
       <link rel="stylesheet" href="../css/../css/cs1.css" />
 
-      <meta property="og:title" content="Week 5 - Timers and Arrays" />
+      <meta property="og:title" content=""Week 7 - Arrays" " />
                   <meta property="og:type" content="article" />
   </head>
   <body>
@@ -18,84 +18,97 @@
     <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
   </ul>
 </nav> </footer>
-      <h1>Week 5 - Timers and Arrays</h1>
-            <p><em>Date: 2025-02-25</em></p>
+      <h1>"Week 7 - Arrays" </h1>
+            <p><em>Date: 2025-03-04</em></p>
+            <ul>
+            <li>TOC {:toc}</li>
+            </ul>
+            <p>Note: We will take breaks at least once an hour</p>
             <h2 id="todays-schedule">Today’s Schedule</h2>
             <ul>
-            <li>Check-in/Review
-            <ul>
-            <li>functions</li>
-            </ul></li>
-            <li>Midterm info</li>
-            <li>Review simple AI homework</li>
-            <li>Timers with millis()</li>
-            <li>Arrays</li>
+            <li>check-in</li>
+            <li>midterm review</li>
+            <li>help! Classes and Objects</li>
+            <li>arrays!</li>
             </ul>
             <h3 id="midterm-exam">Midterm Exam</h3>
-            <p>In-person exam on March 18. Relax! We will have a study
+            <p>In-person exam on March 19. Relax! We will have a study
             sheet. Your exam and project are together worth 25%.</p>
-            <p>Subjects to review:</p>
-            <ul>
-            <li>comments</li>
-            <li>variables</li>
-            <li>types</li>
-            <li>randomness</li>
-            <li>basic functions</li>
-            <li>println debugging</li>
-            <li>conditionals</li>
-            <li>loops</li>
-            <li>functions</li>
-            <li>arguments</li>
-            <li>return</li>
-            <li>translation, rotation, pushMatrix/popMatrix</li>
-            <li>timer with millis()</li>
-            <li>classes and objects</li>
-            <li>arrays</li>
-            </ul>
-            <h2 id="timer-functionality-using-millis">Timer
-            functionality using millis()</h2>
-            <h2 id="lets-build-a-timer">Let’s build a timer</h2>
-            <p>We need two variables: - a variable to hold the present
-            time - a variable that stands for the amount of time to wait
-            until alarm goes off</p>
-            <p>Processing has the <em>millis()</em> command which always
-            returns the number of milliseconds since our program began.
-            1000 milliseconds equals 1 second.</p>
-            <ul>
-            <li>How many milliseconds in a 30 second timer?</li>
-            <li>How many milliseconds in an hour?</li>
-            </ul>
-            <pre><code>//Basic timer
-//timer goes off after 3 seconds
-int wait = 3000; //wait 3 seconds (3000 millis)
-
-void setup(){
-  size(200,200);
-}
-
-void draw(){
-  if(millis() &gt; wait){
-    println(&quot;ALARM!&quot;); //will keep printing in the loop
-  }
-}</code></pre>
-            <p>To answer: why does it repeatedly print “ALARM” after 3
-            seconds?</p>
-            <p>How would we have a timer go off every X seconds?</p>
-            <pre><code>//Basic timer
-//timer goes off every 5 seconds
-int wait = 5000; //wait 5 seconds (5000 millis)
-
-void setup(){
-  size(200,200);
-}
-
-void draw(){
-  //check the difference between now and the previously stored time is greater than the wait interval
-  if(millis() &gt; wait){
-    println(&quot;ALARM!&quot;);
-    wait = wait + 5000; //Add 5 more seconds to the waiting time
-  }
-}</code></pre>
+            <p>Subjects to review: - Comments - Variables - Types -
+            randomness - basic functions - println debugging -
+            conditionals - loops - functions - arguments - return -
+            translation, rotation, pushMatrix()/popMatrix() - timer with
+            millis() - classes and objects - arrays</p>
+            <h3 id="midterm-project">Midterm project</h3>
+            <p>Midterm project is due on Oct 26 (2 weeks).</p>
+            <h2 id="midterm-tamagotchi">Midterm Tamagotchi</h2>
+            <figure>
+            <img
+            src="../images/c5451b3a61780410eddc0739594010aad0e6faa5.jpeg"
+            alt="Tamagotchi" />
+            <figcaption aria-hidden="true">Tamagotchi</figcaption>
+            </figure>
+            <p>We are a little over a third of the way through the
+            semester and have come far in our programming knowledge. We
+            have covered variables and types, conditionals, loops,
+            functions, translations, interaction through keypresses and
+            the mouse, classes and objects. Next week we will add in
+            arrays to complete the foundations. Taking the totality of
+            what we’ve learned so far our midterm project is to code a
+            <a
+            href="https://en.wikipedia.org/wiki/Tamagotchi">Tamagotchi</a>,
+            type of <a
+            href="https://en.wikipedia.org/wiki/Digital_pet">digital
+            pet</a> such as a <a
+            href="https://en.wikipedia.org/wiki/Furby">Furby</a> or <a
+            href="https://en.wikipedia.org/wiki/Artificial_human_companion">artificial
+            human companions</a>.</p>
+            <figure>
+            <img
+            src="../images/5ec2071b5501941167f2b3ef8389a78a2bf2f5c2.jpg"
+            alt="Furby" />
+            <figcaption aria-hidden="true">Furby</figcaption>
+            </figure>
+            <p>Part A due next week:</p>
+            <ol type="1">
+            <li>Sketch out what your Tamagotchi creature looks like in
+            its resting state. Note that your digital pet could be an
+            animal, robot, plant, etc.</li>
+            <li>Write down the various states your Tamagotchi can take.
+            For example: resting (neutral), sleeping, eating, crying,
+            playing a game, talking. Include at least 3 states and no
+            more than 5.</li>
+            <li>Draw a flow chart consisting of a finite state machine
+            diagram showing how it progresses between states. For
+            example, bored (fed) -&gt; happy. bored (not fed) -&gt;
+            crying. Indicate what causes it to change from one state to
+            another. This could be a timer or a trigger (“petting” a dog
+            by clicking on it, etc).</li>
+            </ol>
+            <figure>
+            <img
+            src="../images/992c19085734bf13698aa9576bd902dea808abe7.png"
+            alt="dog finite state machine" />
+            <figcaption aria-hidden="true">dog finite state
+            machine</figcaption>
+            </figure>
+            <figure>
+            <img
+            src="../images/5bfcd1703d3fbafa247f11014ad19775c9506a77.png"
+            alt="animal finite state machine" />
+            <figcaption aria-hidden="true">animal finite state
+            machine</figcaption>
+            </figure>
+            <figure>
+            <img
+            src="../images/b7b72d6194eb977a7335c676d95fc9d0143dd132.gif"
+            alt="Pacman finite state machine" />
+            <figcaption aria-hidden="true">Pacman finite state
+            machine</figcaption>
+            </figure>
+            <p>Weeks ahead: Part B will be to create your creature’s
+            Class in code. Part C will be to implement timers and
+            interactivity to build the state machine.</p>
             <h1 id="arrays">Arrays</h1>
             <p>What are they? Arrays are <strong>lists</strong>. An
             array is a <em>list</em> of <em>data</em> stored under the
@@ -124,8 +137,10 @@ for (int i = 0; i &lt; x.length; i++) {
   rect(0, i*10, x[i], 8);
 }</code></pre>
             <figure>
-            <img src="../images/array.png" alt="array example" />
-            <figcaption aria-hidden="true">array example</figcaption>
+            <span class="image placeholder"
+            data-original-image-src="array-example.png"
+            data-original-image-title="">array example</span>
+            <figcaption>array example</figcaption>
             </figure>
             <h3 id="define-an-array">Define an Array</h3>
             <p>You define an array similar to other data types with the
@@ -233,74 +248,6 @@ for (int i = 0; i &lt; die.length; i++){
             an Array</a> - <a
             href="https://www.youtube.com/watch?v=47JBVxCWXJA">Declare,
             Initialize and Use an Array</a></p>
-            <h2 id="midterm-project">Midterm project</h2>
-            <p>Midterm project is due in March 18 (3 weeks).</p>
-            <h3 id="tamagotchi">Tamagotchi</h3>
-            <figure>
-            <img src="../images/tamagotchi.jpg" alt="Tamagotchi" />
-            <figcaption aria-hidden="true">Tamagotchi</figcaption>
-            </figure>
-            <p><em>Tamagotchi image by <a
-            href="https://en.wikipedia.org/wiki/Tamagotchi#/media/File:Tamagotchi_0124_ubt.jpeg">Tomasz
-            Sienicki</a></em></p>
-            <p>We are a little over a third of the way through the
-            semester and have come far in our programming knowledge. We
-            have covered variables and types, conditionals, loops,
-            functions, translations, interaction through keypresses and
-            the mouse, classes and objects. Next week we will add in
-            arrays to complete the foundations. Taking the totality of
-            what we’ve learned so far our midterm project is to code a
-            <a
-            href="https://en.wikipedia.org/wiki/Tamagotchi">Tamagotchi</a>,
-            type of <a
-            href="https://en.wikipedia.org/wiki/Digital_pet">digital
-            pet</a> such as a <a
-            href="https://en.wikipedia.org/wiki/Furby">Furby</a> or <a
-            href="https://en.wikipedia.org/wiki/Artificial_human_companion">artificial
-            human companions</a>.</p>
-            <figure>
-            <img src="../images/Green_Furby.jpg" alt="Furby" />
-            <figcaption aria-hidden="true">Furby</figcaption>
-            </figure>
-            <p><em>Green Furby By Original work: <a
-            href="https://en.wikipedia.org/w/index.php?curid=78700643">Hasbro,
-            Inc.Depiction: osde8info - Furby, CC BY-SA 2.0</a></em></p>
-            <p>Part A:</p>
-            <ol type="1">
-            <li>Sketch out what your Tamagotchi creature looks like in
-            its resting state. Note that your digital pet could be an
-            animal, robot, plant, etc.</li>
-            <li>Write down the various states your Tamagotchi can take.
-            For example: resting (neutral), sleeping, eating, crying,
-            playing a game, talking. Include at least 3 states and no
-            more than 5.</li>
-            <li>Draw a flow chart consisting of a finite state machine
-            diagram showing how it progresses between states. For
-            example, bored (fed) -&gt; happy. bored (not fed) -&gt;
-            crying. Indicate what causes it to change from one state to
-            another. This could be a timer or a trigger (“petting” a dog
-            by clicking on it, etc).</li>
-            </ol>
-            <figure>
-            <img src="../images/fsm_dog.png"
-            alt="dog finite state machine" />
-            <figcaption aria-hidden="true">dog finite state
-            machine</figcaption>
-            </figure>
-            <p><em>image by <a
-            href="https://learnyousomeerlang.com/finite-state-machines">Learn
-            You Some Erlang</a></em></p>
-            <figure>
-            <img src="../images/pacman.gif"
-            alt="Pacman finite state machine" />
-            <figcaption aria-hidden="true">Pacman finite state
-            machine</figcaption>
-            </figure>
-            <p><em>Pacman finite state machine by <a
-            href="https://oddwiring.com/">oddwiring</a></em></p>
-            <p>Weeks ahead: Part B will be to create your creature’s
-            Class in code. Part C will be to implement timers and
-            interactivity to build the state machine.</p>
       <footer> <hr>
 
 <p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
