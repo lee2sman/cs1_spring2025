@@ -14,7 +14,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.html
 https://leetusman.com/cs1_spring2025/posts/2025-01-28-intro.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -42,7 +42,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.html
 https://leetusman.com/cs1_spring2025/posts/2025-02-03-week2.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -70,7 +70,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.html
 https://leetusman.com/cs1_spring2025/posts/2025-02-11-week3.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -98,7 +98,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.html
 https://leetusman.com/cs1_spring2025/posts/2025-02-18-week4.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -125,7 +125,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-02-25-week5.html
 https://leetusman.com/cs1_spring2025/posts/2025-02-25-week5.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -153,7 +153,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-03-04-midterm-practice.html
 https://leetusman.com/cs1_spring2025/posts/2025-03-04-midterm-practice.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -180,7 +180,7 @@ https://leetusman.com/cs1_spring2025/posts/2025-03-04-week6.html
 https://leetusman.com/cs1_spring2025/posts/2025-03-04-week6.html
 </guid>
 <pubDate>
-Wed, 05 Mar 2025 00:00:00 -0500
+Tue, 11 Mar 2025 00:00:00 -0400
 </pubDate>
 <description>
 <![CDATA[
@@ -194,6 +194,34 @@ Today:
 -   Dot operator, this, new
 -   build Frogger
 -   finite state machine
+]]>
+</description>
+</item>
+<item>
+<title>
+Week 7 - Arrays of Objects and Debugging
+</title>
+<link>
+https://leetusman.com/cs1_spring2025/posts/2025-03-11-week7.html
+</link>
+<guid>
+https://leetusman.com/cs1_spring2025/posts/2025-03-11-week7.html
+</guid>
+<pubDate>
+Tue, 11 Mar 2025 00:00:00 -0400
+</pubDate>
+<description>
+<![CDATA[
+Today
+
+-   check-in
+-   midterm review
+-   arrays of objects
+-   finite state machine
+
+Midterm Exam
+
+Arrays of objects
 ]]>
 </description>
 </item>

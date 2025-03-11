@@ -4,10 +4,11 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="date" content="" />
-            <title>"Week 7 - Arrays" </title>
+            <title>Week 7 - Arrays of Objects and Debugging</title>
       <link rel="stylesheet" href="../css/../css/cs1.css" />
 
-      <meta property="og:title" content=""Week 7 - Arrays" " />
+      <meta property="og:title" content="Week 7 - Arrays of Objects and
+Debugging" />
                   <meta property="og:type" content="article" />
   </head>
   <body>
@@ -18,236 +19,265 @@
     <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
   </ul>
 </nav> </footer>
-      <h1>"Week 7 - Arrays" </h1>
-            <p><em>Date: 2025-03-04</em></p>
-            <ul>
-            <li>TOC {:toc}</li>
-            </ul>
-            <p>Note: We will take breaks at least once an hour</p>
-            <h2 id="todays-schedule">Today’s Schedule</h2>
+      <h1>Week 7 - Arrays of Objects and Debugging</h1>
+            <p><em>Date: 2025-03-11</em></p>
+            <h2 id="today">Today</h2>
             <ul>
             <li>check-in</li>
             <li>midterm review</li>
-            <li>help! Classes and Objects</li>
-            <li>arrays!</li>
+            <li>arrays of objects</li>
+            <li>finite state machine</li>
             </ul>
             <h3 id="midterm-exam">Midterm Exam</h3>
-            <p>In-person exam on March 19. Relax! We will have a study
-            sheet. Your exam and project are together worth 25%.</p>
-            <p>Subjects to review: - Comments - Variables - Types -
-            randomness - basic functions - println debugging -
-            conditionals - loops - functions - arguments - return -
-            translation, rotation, pushMatrix()/popMatrix() - timer with
-            millis() - classes and objects - arrays</p>
-            <h3 id="midterm-project">Midterm project</h3>
-            <p>Midterm project is due on Oct 26 (2 weeks).</p>
-            <h2 id="midterm-tamagotchi">Midterm Tamagotchi</h2>
+            <h3 id="arrays-of-objects">Arrays of objects</h3>
+            <p>Several weeks ago we built Frogger in class. We created a
+            Car class and then built a number of car objects (car0,
+            car1, car2, etc). What do these objects have in common?</p>
+            <p>This is a perfect use case for an array. Especially if we
+            want to make a large number of cars.</p>
+            <p>Let’s re-use our car class:</p>
+            <pre><code>class Car {
+  float x;
+  float y;
+  float xspeed;
+  color c;
+  
+  Car(float tempX, float tempY, float tempXspeed, color tempC){
+    c = tempC;
+    x = tempX;
+    y = tempY;
+    xspeed = tempXspeed;
+  }
+  
+  void display(){
+    rectMode(CENTER);
+    stroke(0);
+    fill(c);
+    rect(x, y, 20, 10);
+  }
+  
+  void move(){
+    x = x + xspeed;
+    
+    if (x &gt; width){
+      x = 0;
+    }
+    if (x &lt; 0){
+      x = width;
+    }
+  }
+}</code></pre>
+            <p>Let’s say we have 2 cars.</p>
+            <p>Our main code:</p>
+            <pre><code>Car car0, car1;
+
+void setup(){
+  size(500,500);
+  car0 = new Car(100,150,1,color(100,0,100));
+  car1 = new Car(300,230,2,color(220,0,120));
+}
+
+void draw(){
+  background(255);
+  car0.display();
+  car0.move();
+  car1.display();
+  car1.move();
+}</code></pre>
+            <p>What happens if we have more than 2 cars. What if we have
+            10 cars? 30 cars?</p>
+            <p>It would be a lot easier if we didn’t have type in all of
+            the cars individually.</p>
+            <pre><code>Car[] cars = new Car[20]; //an array of 20 cars
+
+void setup(){
+  size(500,500);
+  
+  for (int i = 0; i &lt; cars.length; i++){
+    cars[i] = new Car(random(width),random(height),random(2),color(random(255)));
+  }
+}
+
+void draw(){
+ for (int i = 0; i &lt; cars.length; i++){
+    cars[i].display();
+    cars[i].move();
+    }
+}</code></pre>
+            <h3 id="debugging">Debugging</h3>
+            <p>Processing comes with a Debugger.</p>
+            <p>What’s a bug?</p>
             <figure>
             <img
-            src="../images/c5451b3a61780410eddc0739594010aad0e6faa5.jpeg"
-            alt="Tamagotchi" />
-            <figcaption aria-hidden="true">Tamagotchi</figcaption>
+            src="../images/779c6cb1d7a09ab152f04a19f111e5a1b9fc1d9c.jpg"
+            alt="original Grace Hopper moth bug" />
+            <figcaption aria-hidden="true">original Grace Hopper moth
+            bug</figcaption>
             </figure>
-            <p>We are a little over a third of the way through the
-            semester and have come far in our programming knowledge. We
-            have covered variables and types, conditionals, loops,
-            functions, translations, interaction through keypresses and
-            the mouse, classes and objects. Next week we will add in
-            arrays to complete the foundations. Taking the totality of
-            what we’ve learned so far our midterm project is to code a
-            <a
-            href="https://en.wikipedia.org/wiki/Tamagotchi">Tamagotchi</a>,
-            type of <a
-            href="https://en.wikipedia.org/wiki/Digital_pet">digital
-            pet</a> such as a <a
-            href="https://en.wikipedia.org/wiki/Furby">Furby</a> or <a
-            href="https://en.wikipedia.org/wiki/Artificial_human_companion">artificial
-            human companions</a>.</p>
-            <figure>
-            <img
-            src="../images/5ec2071b5501941167f2b3ef8389a78a2bf2f5c2.jpg"
-            alt="Furby" />
-            <figcaption aria-hidden="true">Furby</figcaption>
-            </figure>
-            <p>Part A due next week:</p>
+            <blockquote>
+            <p>an error, flaw, failure or fault in a computer program or
+            system that causes it to produce an incorrect or unexpected
+            result, or to behave in unintended ways.
+            <em>Wikipedia</em></p>
+            </blockquote>
+            <p>Bugs cause disasters:</p>
+            <ul>
+            <li>The Challenger spaceship explosion</li>
+            <li>European Space Agency’s $1 billion Ariane 5 rocket was
+            destroyed a minute after launch due to a bug in the guidance
+            program</li>
+            <li>stuck accelerator in certain Toyota cars</li>
+            </ul>
+            <h3 id="using-processings-debugger">Using Processing’s
+            Debugger</h3>
             <ol type="1">
-            <li>Sketch out what your Tamagotchi creature looks like in
-            its resting state. Note that your digital pet could be an
-            animal, robot, plant, etc.</li>
-            <li>Write down the various states your Tamagotchi can take.
-            For example: resting (neutral), sleeping, eating, crying,
-            playing a game, talking. Include at least 3 states and no
-            more than 5.</li>
-            <li>Draw a flow chart consisting of a finite state machine
-            diagram showing how it progresses between states. For
-            example, bored (fed) -&gt; happy. bored (not fed) -&gt;
-            crying. Indicate what causes it to change from one state to
-            another. This could be a timer or a trigger (“petting” a dog
-            by clicking on it, etc).</li>
+            <li>Turn on the debugger (Debug menu or click the Moth
+            icon)</li>
+            <li>Click on the line where you want to set a breakpoint (a
+            pause when running the code)</li>
+            <li>Choose <em>Set Breakpoint</em> from the Debug menu</li>
+            <li>Run your code. It will pause at the breakpoint and show
+            your variables.</li>
+            <li>You can hit step to move one line of code, or continue
+            to run until the next breakpoint</li>
+            <li>You can set multiple breakpoints. You can click on the
+            Processing folder to see builtin variables.</li>
             </ol>
+            <h2 id="finite-state-machines">Finite State Machines</h2>
+            <p>A few weeks ago we looked at diagrams of finite state
+            machines.</p>
             <figure>
-            <img
-            src="../images/992c19085734bf13698aa9576bd902dea808abe7.png"
+            <img src="../images/fsm_dog.png"
             alt="dog finite state machine" />
             <figcaption aria-hidden="true">dog finite state
             machine</figcaption>
             </figure>
-            <figure>
-            <img
-            src="../images/5bfcd1703d3fbafa247f11014ad19775c9506a77.png"
-            alt="animal finite state machine" />
-            <figcaption aria-hidden="true">animal finite state
-            machine</figcaption>
-            </figure>
-            <figure>
-            <img
-            src="../images/b7b72d6194eb977a7335c676d95fc9d0143dd132.gif"
-            alt="Pacman finite state machine" />
-            <figcaption aria-hidden="true">Pacman finite state
-            machine</figcaption>
-            </figure>
-            <p>Weeks ahead: Part B will be to create your creature’s
-            Class in code. Part C will be to implement timers and
-            interactivity to build the state machine.</p>
-            <h1 id="arrays">Arrays</h1>
-            <p>What are they? Arrays are <strong>lists</strong>. An
-            array is a <em>list</em> of <em>data</em> stored under the
-            same name. You can create an array of any type of data. When
-            you create an array, you can access any of the data stored
-            in that array. We call the location of a piece of data its
-            <strong>index</strong>.</p>
-            <p>The first location in an array is always 0. We call that
-            position <code>[0]</code>. The second location is
-            <code>[1]</code>. Etc.</p>
-            <p><strong>IMPORTANT</strong>: Each array has a variable
-            <code>length</code> that returns the total number of
-            elements in the array. Keep in mind that arrays start
-            counting at 0 so an array with 10 elements in (a length of
-            10) will go from location <code>[0]</code> up to location
-            <code>[9]</code>!</p>
-            <pre><code>//from Processing tutorials - Arrays
-
-int[] x = { 
-  50, 61, 83, 69, 71, 50, 29, 31, 17, 39
-};
-
-fill(0);
-// Read one array element each time through the FOR loop
-for (int i = 0; i &lt; x.length; i++) {
-  rect(0, i*10, x[i], 8);
+            <p>Today, we will code one.</p>
+            <p>At its core, the finite state machine are a series of
+            functions with different states. You can transition between
+            these states. And you can never be in more than one state at
+            a time.</p>
+            <pre><code>void draw(){
+  if (state == &quot;sleeping&quot;){
+    sleeping();
+  } else if (state == &quot;laughing&quot;){
+    laughing();
+  } else if (state == &quot;eating&quot;){
+    eating();
+  } else {
+    sitting();
+  }
 }</code></pre>
-            <figure>
-            <span class="image placeholder"
-            data-original-image-src="array-example.png"
-            data-original-image-title="">array example</span>
-            <figcaption>array example</figcaption>
-            </figure>
-            <h3 id="define-an-array">Define an Array</h3>
-            <p>You define an array similar to other data types with the
-            addition of brackets [ and ]. When you declare an array you
-            specify what kind of data it will hold. An array can only
-            hold a single data type.</p>
-            <h3 id="three-ways-to-define-an-array">Three ways to define
-            an array</h3>
-            <pre><code>int[] ages; //declaring an array for BTS members&#39; ages
+            <h4 id="basic-finite-state-machine-example">Basic finite
+            state machine example</h4>
+            <pre><code>String state = &quot;sleeping&quot;;
 
 void setup(){
-  size(100,100);
-  ages = new int[7]; //create space in memory for 7 values
-  ages[0] = 27;  //assign
-  ages[1] = 26;
-  ages[2] = 25;
-  ages[3] = 25;
-  ages[4] = 24;
-  ages[5] = 24;
-  ages[6] = 22;
-}</code></pre>
-            <p><strong>OR</strong></p>
-            <pre><code>int[] ages = new int[7]; //declare and create 
+  
+}
 
-void setup(){
-  size(100,100);
-  ages[0] = 27;  //assign
-  ages[1] = 26;
-  ages[2] = 25;
-  ages[3] = 25;
-  ages[4] = 24;
-  ages[5] = 24;
-  ages[6] = 22;
-}</code></pre>
-            <p><strong>OR</strong></p>
-            <pre><code>int[] ages_of_BTS_members = {27, 26, 25, 25, 24, 24, 22};
-//declare, create and assign all in one
+void draw(){
+ if (state == &quot;sleeping&quot;){
+   sleeping(); 
+ } else if (state == &quot;eating&quot;) {
+   eating();
+ } else {
+   sitting(); 
+ }
+}
 
-void setup(){
-  size(100,100);
-}</code></pre>
-            <h3 id="name-array-example">Name array example</h3>
-            <pre><code>String[] names = {&quot;Owen&quot;,&quot;Zev&quot;,&quot;Anthony&quot;,&quot;Frankie&quot;,&quot;Alexander&quot;,&quot;Brock&quot;,&quot;Jake&quot;,&quot;Sofia&quot;,&quot;Sergio&quot;,&quot;Tiffany&quot;,&quot;Maya&quot;,&quot;Markus&quot;,&quot;Allan&quot;,&quot;Khalid&quot;};
+void sleeping(){
+ println(&quot;It&#39;s sleeping&quot;); 
+ 
+ if (mousePressed){
+  state = &quot;sitting&quot;; 
+ }
+}
 
-void setup(){
-  size(100,100);
-  println(&quot;Total students: &quot;+names.length);
-  println(&quot;The first student: &quot;+names[0]);
-  println(&quot;The last student: &quot;+names[names.length-1]);
-  //question: why do we specify name.length - 1?
+void sitting(){
+ println(&quot;It&#39;s sitting&quot;); 
+ 
+ if (mousePressed){
+  state = &quot;eating&quot;; 
+ }
+}
+
+void eating(){
+ println(&quot;It&#39;s eating&quot;);
+ 
+ if (mousePressed){
+  state = &quot;sitting&quot;; 
+ }
 }</code></pre>
-            <h3 id="in-class-challenge">in-class challenge</h3>
-            <p>How do pick a random student name from the list?</p>
-            <h3 id="resources">Resources</h3>
+            <h4 id="next-steps">Next steps:</h4>
+            <p>Now we add in:</p>
             <ul>
-            <li>More about <a
-            href="https://processing.org/reference/Array.html">arrays</a>
-            in the Processing reference.</li>
-            <li>An additional <a
-            href="https://processing.org/tutorials/arrays/">chapter
-            about arrays</a> from the book <em>Processing: A Programming
-            Handbook for Visual Designers and Artists</em>.</li>
+            <li>drawing</li>
+            <li>timers</li>
+            <li>interactivity</li>
             </ul>
-            <h2 id="using-loops-to-initialize-an-array">Using loops to
-            initialize an array</h2>
-            <p>Let’s say we wanted to roll 5 dice.</p>
-            <pre><code>int[] die = new int[5];
-die[0] = random(1,7);
-die[1] = random(1,7);
-die[2] = random(1,7);
-die[3] = random(1,7);
-die[4] = random(1,7);
-die[5] = random(1,7);</code></pre>
-            <p>Instead, let’s use a loop:</p>
-            <pre><code>int [] die = new int[5];
-
-for (int i = 0; i &lt; die.length; i++){
-    die[i] = int(random(1,7)); 
-    //must convert from float to int. random produces floats!
-}</code></pre>
-            <p>Remember <code>.length</code> tells us how long the array
-            is</p>
-            <h4 id="in-class">In-class</h4>
+            <h2 id="midterm-project-checkin">Midterm project
+            checkin</h2>
             <ul>
-            <li><p>Create an array of 1000 floats. Initialize every
-            element with random number between 0 and 10.</p></li>
-            <li><p>Create an array of 10 integers. Add to each number
-            the number that follows in the array. Skip the last
-            number.</p></li>
-            <li><p>Create and initialize an array of 100 integers.
-            Calculate the sum of all elements in the array.</p></li>
+            <li>work on midterm project</li>
+            <li>Midterm project is due on April 1</li>
             </ul>
-            <h3 id="more-on-arrays">More on arrays</h3>
+            <h3 id="for-next-week">For next week:</h3>
+            <p>Prototype of virtual pet due.</p>
+            <p>Your prototype must include: - 1. flowchart of finite
+            state machine and 2. your code - Code all states from your
+            submitted finite state machine flowchart. <strong>Your code
+            must reflect on the states and triggers from your finite
+            state machine flowchart</strong> - Implementation of all
+            triggers and states (triggers are the events that transition
+            between states) - compelling visuals of the pet to accompany
+            each of its states (consider how you can animate as well) -
+            completion of interactivity and timers between states</p>
+            <p>Grading Rubric for final of virtual pet project:</p>
+            <h4 id="code">Code</h4>
             <ul>
-            <li>Arrays are declared similarly to other data types but
-            use a bracket to indicate a list of elements.</li>
-            <li>After declaring an array, use <code>new</code> to create
-            the array. <code>data = new int[5];</code></li>
-            <li>Array’s individual elements may have their value
-            changed, but you cannot change the length of the array.</li>
+            <li>Your project’s code should be well-commented. Variables,
+            functions and class names should be clear. Classes should be
+            on their own separate tab.</li>
+            <li>Your coding should be efficient. Break your code into
+            meaningful chunks using functions and classes. Rather than
+            repeat code, use loops. Consider how arrays might help your
+            code.</li>
+            <li>Your code should work!</li>
+            <li>Don’t hard code numbers. Use variables, width, height -
+            for example - to make your code function on different
+            computers.</li>
             </ul>
-            <h1 id="watch">Watch</h1>
-            <p>Watch The Coding Train videos on Arrays. - <a
-            href="https://www.youtube.com/watch?v=NptnmWvkbTw">What is
-            an Array</a> - <a
-            href="https://www.youtube.com/watch?v=47JBVxCWXJA">Declare,
-            Initialize and Use an Array</a></p>
+            <h4 id="idea">Idea</h4>
+            <ul>
+            <li>Your software should be accompanied by a description
+            (more than a paragraph, less than a page. What is the idea?
+            How did you approach it? What challenges did you have? How
+            did you solve it? These are example questions. Feel free to
+            add additional information.</li>
+            <li>Did you base your functionality on other virtual pets,
+            animals, Aibo, something else?</li>
+            <li>What feedback did you receive on your prototype? What
+            changes did you make based on that feedback?</li>
+            <li>Your originality will be judged. Do not copy projects
+            already found online.</li>
+            </ul>
+            <h4 id="functionality-and-design">Functionality and
+            Design</h4>
+            <ul>
+            <li>Is it clear how to use and navigate your virtual pet?
+            Remember K.I.S.S. principles (<em>“Keep It Simple,
+            Stupid!”</em>)</li>
+            <li>How do you interact with it?</li>
+            <li>Does the program flow (of your finite state machine)
+            make logical sense?</li>
+            <li>Do the aesthetics suit the concept? Is it engaging more
+            than a minute? Is the interaction compelling for users?</li>
+            <li>How does the virtual pet show that it’s passing
+            time?</li>
+            <li><strong>A complete virtual pet must include both timers
+            as well as interactivity (mouse or keys).</strong></li>
+            </ul>
       <footer> <hr>
 
 <p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>

@@ -1,3 +1,6 @@
+[Week 7 - Arrays of Objects and Debugging](week7/)  
+2025-03-11  
+
 [Week 6 - Classes and Objects](week6/)  
 2025-03-04  
 
