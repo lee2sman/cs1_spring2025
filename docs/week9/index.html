@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>"Week 9 - Media Files such as Images and
+Video"</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content=""Week 9 - Media Files such as
+Images and Video"" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>"Week 9 - Media Files such as Images and Video"</h1>
+            <p><em>Date: 2025-04-01</em></p>
+            <h2 id="todays-schedule">Today’s Schedule</h2>
+            <ul>
+            <li>midterm</li>
+            <li>media</li>
+            <li>class coding time and 1-on-1 check-ins</li>
+            </ul>
+            <h3 id="midterm-exam">Midterm Exam</h3>
+            <h2 id="working-with-media">Working with Media</h2>
+            <p>After all of the other work we’ve done this semester,
+            working with images is quite easy.</p>
+            <p>To work with images, declare a global variable of type
+            <code>PImage</code></p>
+            <pre><code>PImage img1;
+PImage img2;
+//we&#39;ll have two image files</code></pre>
+            <h3 id="how-it-works-images">How it works: Images</h3>
+            <p>Make a new instance of PImage by loading in an image file
+            in your setup</p>
+            <pre><code>void setup(){
+  size(500,500);
+  img1 = loadImage(&quot;dawg.jpg&quot;);
+  img2 = loadImage(&quot;cat.jpg&quot;);
+}</code></pre>
+            <p>Now that we’ve loaded our image, we can draw them to the
+            screen.</p>
+            <pre><code>void draw(){
+    imageMode(CORNER); //the default, like rectMode&#39;s default
+    image(img1,0,0); //now draw it to screen at x,y
+
+    imageMode(CENTER);
+    image(img2,width/2,height/2,200,200);
+    //draws img2 in center as a square 200 wide, 200 high
+    //width and height are optional parameters
+}</code></pre>
+            <p>Images can be manipulated just as other shapes. For
+            example, they can be drawn on screen at
+            <code>mouseX,mouseY</code>.</p>
+            <pre><code>noCursor();
+image(myImg,mouseX,mouseY); //replace the cursor with an image</code></pre>
+            <h3 id="where-must-your-images-be-located-to-use-them">Where
+            must your images be located to use them?</h3>
+            <p>In the data folder.</p>
+            <p>Go to <strong>Sketch &gt; Add file</strong> OR
+            <strong>Sketch &gt; Show Sketch Folder</strong> and drag
+            your image files in there.</p>
+            <h3 id="image-processing-filters">Image Processing
+            filters</h3>
+            <p><em>tint()</em></p>
+            <ul>
+            <li>added like fill before drawing your image</li>
+            </ul>
+            <pre><code>tint(255) // original state
+tint(100) // darker</code></pre>
+            <p>adding a second argument, for transparency</p>
+            <pre><code>tint(255, 127) //50% opacity</code></pre>
+            <p>You can change brightness of red, green, blue components
+            of color</p>
+            <pre><code>tint(200, 0, 255)  //most red, no green, all blue components</code></pre>
+            <p><strong>Note: If you use a tint on one image but want NO
+            TINT on another, make sure you set it back to the default
+            <code>tint(255);</code>.</strong></p>
+            <pre><code>tint(200,0,0,127)</code></pre>
+            <h2 id="for-next-week">For next week:</h2>
+            <p>Grading Rubric for final of virtual pet project:</p>
+            <h4 id="code">Code</h4>
+            <ul>
+            <li>Your project’s code should be well-commented. Variables,
+            functions and class names should be clear. Classes should be
+            on their own separate tab.</li>
+            <li>Your coding should be efficient. Break your code into
+            meaningful chunks using functions and classes. Rather than
+            repeat code, use loops. Consider how arrays might help your
+            code.</li>
+            <li>Your code should work!</li>
+            <li>Don’t hard code numbers. Use variables, width, height -
+            for example - to make your code function on different
+            computers.</li>
+            </ul>
+            <h4 id="idea">Idea</h4>
+            <ul>
+            <li>Your software should be accompanied by a description
+            (more than a paragraph, less than a page. What is the idea?
+            How did you approach it? What challenges did you have? How
+            did you solve it? These are example questions. Feel free to
+            add additional information.</li>
+            <li>Did you base your functionality on other virtual pets,
+            animals, Aibo, something else?</li>
+            <li>What feedback did you receive on your prototype? What
+            changes did you make based on that feedback?</li>
+            <li>Your originality will be judged. Do not copy projects
+            already found online.</li>
+            </ul>
+            <h4 id="functionality-and-design">Functionality and
+            Design</h4>
+            <ul>
+            <li>Is it clear how to use and navigate your virtual pet?
+            Remember K.I.S.S. principles (<em>“Keep It Simple,
+            Stupid!”</em>)</li>
+            <li>How do you interact with it?</li>
+            <li>Does the program flow (of your finite state machine)
+            make logical sense?</li>
+            <li>Do the aesthetics suit the concept? Is it engaging more
+            than a minute? Is the interaction compelling for users?</li>
+            <li>How does the virtual pet show that it’s passing
+            time?</li>
+            <li><strong>A complete virtual pet must include both timers
+            as well as interactivity (mouse or keys).</strong></li>
+            </ul>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>

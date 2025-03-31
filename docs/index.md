@@ -1,3 +1,6 @@
+["Week 9 - Media Files such as Images and Video"](week9/)  
+2025-04-01  
+
 [Week 7 - Arrays of Objects and Debugging](week7/)  
 2025-03-11  
 
