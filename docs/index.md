@@ -1,3 +1,6 @@
+[Week 10 - History of Computing and the Layers of Abstraction](week10/)  
+2025-04-08  
+
 [Week 9 - Media Files such as Images and Video](week9/)  
 2025-04-01  
 
