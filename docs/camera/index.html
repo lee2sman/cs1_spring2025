@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>Week 11 - Libraries, Camera, Pixels</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content="Week 11 - Libraries, Camera,
+Pixels" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>Week 11 - Libraries, Camera, Pixels</h1>
+            <p><em>Date: 2025-04-15</em></p>
+            <p>Today:</p>
+            <ul>
+            <li>libraries</li>
+            <li>working with the camera</li>
+            <li>working with video</li>
+            <li>workshop: creating a camera application/frame</li>
+            </ul>
+            <h2 id="libraries">Libraries</h2>
+            <h3 id="what-is-a-library">What is a Library?</h3>
+            <p>Out of the box, Processing comes with lots of great
+            functionality to draw images and shapes on screen, to
+            manipulate colors, create interactivity, and many more
+            built-in functions.</p>
+            <p>When you hit the <strong>play</strong> button, the
+            Processing IDE (Integrated Development Environment) compiles
+            your code. It does this by translating your Processing code
+            into machine code.</p>
+            <p>If you need additional functionality to write a program
+            that can do things not built into the core of Processing,
+            you need to use a <em>Library</em>. A library is a
+            collection of code (essentially, variables, functions and
+            classes) that are pre-made that you can use in your own
+            programs to extend the functionality of the Processing.
+            Examples of this additional functionality include: working
+            with sound, working with video, using machine vision, or
+            working with motors.</p>
+            <p>These additional libraries are not built into the core
+            part of Processing because it would slow down Processing if
+            it had everything and the kitchen sink included from the
+            start. The big idea is that the core of Processing should
+            get you pretty far, but if you need more functionality, you
+            can add a library to get more.</p>
+            <p>Processing’s libraries are created by the people behind
+            Processing. But also, anyone can make and distribute their
+            own Processing library.</p>
+            <p>When you want to use a library, you need to tell
+            Processing to import all of the new functionality into
+            Processing. You do this with an <em>import</em> statement at
+            the top of your program.</p>
+            <pre><code>import processing.video.*</code></pre>
+            <p>The <code>*</code> says that you want to import ALL from
+            the Processing Video library.</p>
+            <h3 id="installing-libraries">Installing Libraries</h3>
+            <p>There are libraries created by the Processing Foundation,
+            and there are <em>contributed libraries</em>. Contributed
+            libraries are created by third party individuals.</p>
+            <p>The Video library is created by the Processing
+            Foundation.</p>
+            <p>All libraries can be imported to be used.</p>
+            <ol type="1">
+            <li>Navigate to the Sketch Menu drop-down.</li>
+            <li>Select <strong>Import Library &gt;&gt; Add
+            Library</strong></li>
+            <li>Type in the name of a library to search for it, or
+            browse, and click <strong>Install</strong> if it’s not
+            already installed (Video is pre-installed).</li>
+            </ol>
+            <h4 id="using-an-installed-library">Using an installed
+            library</h4>
+            <p>Once a library is installed, to use it in a sketch just
+            navigate to <strong>Import Library</strong> in the SKetch
+            menu and click on the name of the library. You’ll see an
+            import statement with the library name added to the top of
+            your sketch.</p>
+            <h2 id="video-library">Video Library</h2>
+            <h4 id="import-the-video-library.">1 Import the video
+            library.</h4>
+            <pre><code>import processing.video.*;</code></pre>
+            <h4 id="declare-a-capture-object.">2 Declare a capture
+            object.</h4>
+            <pre><code>Capture video;</code></pre>
+            <h4 id="initialize-the-capture-object">3 Initialize the
+            capture object</h4>
+            <ul>
+            <li>The video library has two classes: Capture - for live
+            video, and Movie - for recorded video file playback.</li>
+            </ul>
+            <p>You initialize this like other objects, using
+            <strong>new</strong>.</p>
+            <pre><code>video = new Capture();</code></pre>
+            <p>You could also pass in arguments.</p>
+            <pre><code>video = new Capture(this, 320, 240);
+//creates a video capture 320 pixels wide by 240 high</code></pre>
+            <h4 id="start-the-camera-running.">4 Start the camera
+            running.</h4>
+            <pre><code>video.start(); //do this once! in setup</code></pre>
+            <h4 id="read-the-image-from-camera">5 Read the image from
+            camera</h4>
+            <pre><code>void draw(){
+  if (video.available()){
+    video.read();
+  }
+}</code></pre>
+            <p>Alternatively, you could use a special capture event.</p>
+            <pre><code>void captureEvent(Capture video){
+  video.read();
+}</code></pre>
+            <h4 id="display-video">6 Display Video</h4>
+            <pre><code>void draw(){
+  image(video, 0, 0);
+}</code></pre>
+            <h4 id="all-together">All-together:</h4>
+            <pre><code>import processing.video.*;
+
+Capture video;
+
+void setup() {
+  size(320, 240);  
+  video = new Capture(this, 320, 240); 
+  video.start();
+}
+
+void captureEvent(Capture video) {  
+  video.read();
+}
+
+void draw() {  
+  background(255);  
+  tint(mouseX, mouseY, 255);  
+  translate(width/2, height/2);  
+  imageMode(CENTER);  
+  rotate(PI/4);  
+  image(video, 0, 0, mouseX, mouseY);
+}
+</code></pre>
+            <h2 id="working-with-pixels">Working with pixels</h2>
+            <pre><code>import processing.video.*;
+
+// Size of each cell in the grid, ratio of window size to video size
+int videoScale = 50;
+// Number of columns and rows in our system
+int cols, rows;
+// Variable to hold onto Capture object
+Capture video;
+
+void setup(){
+  
+  size(800, 600);
+  background(255);
+  
+  // Set up columns and rows
+  cols = width/videoScale;
+  rows = height/videoScale;
+  video = new Capture(this, width, height);
+  video.start();
+}
+
+void captureEvent(Capture video) {
+  video.read();
+}
+
+void draw(){
+  if (video.available()) {
+    video.read();
+  }
+  
+  video.loadPixels();
+  
+  background(50);
+  
+  for (int i = 0; i &lt; cols; i++) {
+    for (int j = 0; j &lt; rows; j++) {
+      int x = i*videoScale;
+      int y = j*videoScale;
+      // Looking up the appropriate color in the pixel array
+      color c = video.pixels[x + y*video.width];
+      //background(c);
+      fill(c);
+      stroke(10,0);
+      ellipse(x,y,videoScale,videoScale);
+    }
+  }
+}
+  
+void keyPressed(){
+  if (key == &#39; &#39;) {
+    //save to data folder
+      saveFrame(&quot;screenshot-###.png&quot;);
+      println(&quot;Shot taken.&quot;);
+    }
+}</code></pre>
+            <h1 id="homework">Homework:</h1>
+            <p>Watch:</p>
+            <ul>
+            <li><a
+            href="https://www.youtube.com/watch?v=EmtU0eloTlE&amp;list=PLRqwX-V7Uu6YB9x6f23CBftiyx0u_5sO9&amp;index=4">The
+            Pixel Array</a></li>
+            <li><a
+            href="https://www.youtube.com/watch?v=j-ZLDEnhT3Q&amp;list=PLRqwX-V7Uu6YB9x6f23CBftiyx0u_5sO9&amp;index=5">Image
+            Processing With Pixels</a></li>
+            <li><a
+            href="https://www.youtube.com/watch?v=qB3SA43vKYc&amp;list=PLRqwX-V7Uu6YB9x6f23CBftiyx0u_5sO9&amp;index=6">Pixel
+            Neighbors</a></li>
+            <li><a
+            href="https://www.youtube.com/watch?v=NbX3RnlAyGU&amp;list=PLRqwX-V7Uu6YB9x6f23CBftiyx0u_5sO9&amp;index=7">Painting
+            With Pixels</a></li>
+            </ul>
+            <p>Read:</p>
+            <ul>
+            <li>Chapter 12, Libraries</li>
+            <li>Read Chapter 16, on <a
+            href="https://processing.org/tutorials/video/">Video</a></li>
+            </ul>
+            <p>Code:</p>
+            <ul>
+            <li>Create your own new camera software</li>
+            </ul>
+            <p>Two potential options:</p>
+            <p>A. Create a pixel grid project</p>
+            <p><strong>OR</strong></p>
+            <p>B. Create a filter or frame</p>
+            <p><strong>Pixel grid project:</strong></p>
+            <p>Develop an interesting pattern that covers an entire
+            window using the camera and pattern generation.</p>
+            <p>Write your own camera software using a pixel array to
+            manipulate and create your own effect. The camera should be
+            a compelling design and have a logic to it.</p>
+            <p>You must have a SAVE button with a keypress or onscreen
+            button to take a screenshot and save it.</p>
+            <p>Filter or Frame:</p>
+            <p>Create a program that takes camera input and displays
+            that, but then adds a filter or a frame to your image. There
+            should be an underlying concept to the work. A meme camera
+            that adds text, a birthday card maker, a special sidekick
+            that pops-up and appears in the picture as well, or
+            something else.</p>
+            <p>You must have a SAVE button with a keypress or onscreen
+            button to take a screenshot and save it.</p>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>

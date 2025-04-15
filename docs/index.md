@@ -1,3 +1,6 @@
+[Week 11 - Libraries, Camera, Pixels](camera/)  
+2025-04-15  
+
 [Week 10 - History of Computing and the Layers of Abstraction](week10/)  
 2025-04-08  
 
