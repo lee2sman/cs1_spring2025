@@ -1,3 +1,6 @@
+[Week 12 - Sound, Text and Typography](week12/)  
+2025-04-22  
+
 [Week 11 - Libraries, Camera, Pixels](camera/)  
 2025-04-15  
 

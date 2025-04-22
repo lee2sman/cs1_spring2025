@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>Week 12 - Sound, Text and Typography</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content="Week 12 - Sound, Text and
+Typography" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>Week 12 - Sound, Text and Typography</h1>
+            <p><em>Date: 2025-04-22</em></p>
+            <p>Today:</p>
+            <ul>
+            <li>camera software</li>
+            <li>Sound library</li>
+            <li>Strings and Fonts</li>
+            <li>Intro final project</li>
+            </ul>
+            <h2 id="review-camera-software">Review camera software</h2>
+            <h2 id="sound">Sound</h2>
+            <p>To play audio, we can use the Processing Sound
+            library.</p>
+            <pre><code>import processing.sound.*;
+
+SoundFile song;
+
+void setup(){
+  size(200,200);
+  song = new SoundFile(this, &quot;song.mp3&quot;);
+  song.play();
+}
+
+void draw(){
+}
+
+void mousePressed(){
+ if (song.isPlaying()){
+   song.pause();
+ } else {
+   song.play(); 
+ }
+}</code></pre>
+            <h3 id="string-data-type">String data type</h3>
+            <p>This semester we’ve already used text in a few basic ways
+            using the <code>text()</code> built-in function.</p>
+            <p>We’ve also printed text to the console using the
+            <code>println()</code> and <code>print()</code>
+            functions.</p>
+            <p>Processing also comes with a built-in data type called
+            String. Unlike <code>int</code>, <code>boolean</code>, and
+            <code>float</code> for example, <code>String</code> is built
+            out of a class, thus it is capitalized. Other similar data
+            types that are built from classes are <code>Capture</code>
+            and <code>Movie</code>.</p>
+            <p>String is not just from Processing. It comes from the
+            underlying Java language, so you can find documentation</p>
+            <p>More <a
+            href="https://processing.org/reference/String.html">info</a>
+            on String in the Processing reference. You could also look
+            at the extensive Java <a
+            href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html">reference
+            for String</a> for a glimpse into the wider world of
+            Java.</p>
+            <p><strong>A string is an array of characters</strong>. It
+            is defined in a String class. Since we’ve worked with and
+            created classes we know that means we can create individual
+            string objects, and that objects have defined methods.</p>
+            <h3 id="string-methods">String methods</h3>
+            <p>There are a number of built-in methods for working with
+            Strings.<br />
+            Here are a few:</p>
+            <h5 id="charat">charAt()</h5>
+            <pre><code>String name = &quot;Purchase College&quot;;
+char c = name.charAt(0);
+print(c);</code></pre>
+            <h5 id="length">length()</h5>
+            <p>Don’t confuse this with the length property of an array.
+            When you want the length of a String object you must use the
+            parenthesis since it is a method.</p>
+            <pre><code>String name = &quot;Purchase College&quot;;
+print(name.length());</code></pre>
+            <h5 id="change-case-with-touppercase-or-tolowercase">change
+            case with toUpperCase() or toLowerCase()</h5>
+            <pre><code>String name = &quot;Purchase College&quot;;
+println(name.toUpperCase());
+println(name.toLowerCase());</code></pre>
+            <h5 id="equals">equals()</h5>
+            <p>Technically, a String object’s name references a location
+            in memory. When we use a String name in our code and then
+            compile and run the code, Processing looks up what is stored
+            in memory at that location. Depending on how a String was
+            created, it’s possible that two strings that look the same
+            might actually not come up as equivalent if we compare using
+            our standard <code>==</code> comparator. For this reason,
+            it’s best practice to use the <code>equals()</code>
+            method.</p>
+            <p>Example:</p>
+            <pre><code>String greeting1 = &quot;Hi&quot;;
+String greeting2 = &quot;Hola&quot;;
+String greeting3 = &quot;Hi&quot;;
+
+println(greeting1.equals(greeting2);
+println(greeting1.equals(greeting3);</code></pre>
+            <h4 id="combining-strings-aka-concatenation">Combining
+            Strings aka Concatenation</h4>
+            <p>It’s quite easy to combine two strings.</p>
+            <pre><code>String message = &quot;Hi&quot;;
+String name = &quot;Raoul&quot;;
+println(message + &quot; &quot; + name);</code></pre>
+            <h3 id="display-text-onscreen">Display text onscreen</h3>
+            <p>You must start with a font. You have two choices:</p>
+            <ul>
+            <li>Use a system font that all computers have (Helvetica,
+            Arial)</li>
+            <li>OR use a custom font</li>
+            </ul>
+            <h4 id="the-general-process">The general process:</h4>
+            <p>To show text on screen you must render it in pixels.</p>
+            <ol type="1">
+            <li>Create a global PFont you can use to store the font in
+            memory.</li>
+            <li>Use <code>createFont()</code> to specify the specific
+            font and size. This is usually done in setup() as it only
+            should happen once.</li>
+            <li>Somewhere in your sketch, specify that you want to
+            display that font with <code>textFont()</code></li>
+            <li>Specify a <code>fill()</code> color for displaying your
+            text onscreen.</li>
+            <li>Use the <code>text()</code> function, specifying the
+            String, x and y positions. It is helpful to have a
+            background color in order to make your text more crisp.</li>
+            </ol>
+            <h4 id="example-using-a-system-font">Example Using a system
+            font</h4>
+            <pre><code>PFont f;
+
+void setup(){
+  size(400,400);
+  //use a system font
+  f = createFont(&quot;Helvetica&quot;, 18);
+}
+
+void draw(){
+  fill(0);
+  textFont(f, 18);
+  text(&quot;The quick brown fox jumped over the lazy dog.&quot;, 50, 100);
+}</code></pre>
+            <h4 id="example-using-a-custom-downloaded-font">Example
+            Using a custom (downloaded) font</h4>
+            <p>Processing uses a font format called <code>vlw</code> to
+            load and display custom bitmapped fonts. A bitmapped font is
+            a font rendered into pixels. The process is to place a
+            custom/special font in your sketch’s data folder. This would
+            also let you package up a sketch with a custom font and send
+            to another person who might not have that font installed.
+            The easiest way to do this is to use the <strong>Create
+            Font</strong> tool in the <strong>Tools &gt; Create
+            Font…</strong> menu. This will let you select a font
+            installed on your machine to be package with your
+            sketch.</p>
+            <p>Now that you’ve added in a custom font file, you can use
+            <code>loadFont()</code> to load and use it in your
+            sketch.</p>
+            <pre><code>PFont f
+
+void setup(){
+  size(400,400);
+  f = loadFont(&quot;ZXX-18.vlw&quot;);
+}
+
+void draw(){
+  fill(0);
+  textFont(f, 18);
+  text(&quot;The sky above the port was the color of television, tuned to a dead channel&quot;, 50, 100);
+}</code></pre>
+            <h4 id="text-properties">Text properties</h4>
+            <p><code>textAlign()</code> - You can specify the alignment
+            of text when it’s drawn. Options: <code>LEFT</code>,
+            <code>RIGHT</code>, <code>CENTER</code>.</p>
+            <figure>
+            <img src="../images/Opening_crawl.jpg"
+            alt="Star Wars text" />
+            <figcaption aria-hidden="true">Star Wars text</figcaption>
+            </figure>
+            <figure>
+            <img src="../images/Union_Pacific_opening_crawl.jpg"
+            alt="Union Pacific" />
+            <figcaption aria-hidden="true">Union Pacific</figcaption>
+            </figure>
+            <h3 id="importing-data">Importing Data</h3>
+            <h4 id="importing-a-text-file">Importing a text file</h4>
+            <pre><code>String[] lines = loadStrings(&quot;filename.txt&quot;);
+println(&quot;There are &quot;+lines.length+&quot; lines of text.&quot;);
+for (int i = 0; i &lt; lines.length; i++){
+  println(lines[i]);
+}</code></pre>
+            <p><strong>In-class exercise: Star Wars crawl
+            text</strong></p>
+            <h1 id="final-project">Final Project</h1>
+            <p>Our assignments so far have been fairly restrictive. For
+            your final project, I want to open up the field for you to
+            create a project of your choice. The project should use
+            skills and tools we developed this semester. You may create
+            a new project, or build off of another program from earlier
+            in the semester. Your final project could be a tool, game,
+            visualization, animation, interactive artwork or other
+            software project.</p>
+            <p>So far in this course we have covered:</p>
+            <ul>
+            <li>variables and types</li>
+            <li>loops</li>
+            <li>conditionals</li>
+            <li>functions</li>
+            <li>arrays</li>
+            <li>the debugging process</li>
+            <li>classes and objects</li>
+            <li>history of computation and binary and machine code</li>
+            <li>algorithms</li>
+            <li>3D Space, translation, rotation</li>
+            <li>lighting and 3d objects</li>
+            <li>working with libraries: live capture, video and
+            sound</li>
+            <li>manipulating the pixel array</li>
+            <li>working with images</li>
+            <li>Strings and fonts</li>
+            </ul>
+            <p>Consider these elements in the creation of your own work
+            for the final project.</p>
+            <h2
+            id="your-final-project-should-have-a-separate-document-page-with-the-following">Your
+            final project should have a separate document page with the
+            following</h2>
+            <ol type="1">
+            <li>Final Project title</li>
+            <li>1 paragraph description</li>
+            <li>1 page about your project</li>
+            </ol>
+            <ul>
+            <li>What was your approach or strategy did you take in
+            creating your project?</li>
+            <li>How does someone use your software?</li>
+            <li>What libraries, tools or other resources did you use, if
+            any?</li>
+            <li>Notes about challenges when working on the projects.
+            What barriers did you run into and how did you solve
+            it?</li>
+            </ul>
+            <ol start="4" type="1">
+            <li>Include your weekly log files.</li>
+            <li>Include at least 3 screenshots of your project running,
+            including opening screen, while the program is running, and
+            potentially a final page. Add your help page or any other
+            pages.</li>
+            </ol>
+            <h2 id="your-code-must">Your code must:</h2>
+            <ul>
+            <li>be clear and organized</li>
+            <li>use comments to make sections and particular parts of
+            your code clear</li>
+            <li>work without bugs</li>
+            <li>work properly in fullscreen</li>
+            </ul>
+            <h2 id="your-final-project-design-must">Your final project
+            design must:</h2>
+            <ul>
+            <li>Be a compelling and interesting program made with
+            code</li>
+            <li>Properly cite any code that you found and used
+            online</li>
+            <li>Create a compelling interactive work synthesizing both
+            concept and technical execution</li>
+            <li>Have an <strong>info</strong> page, which could be on a
+            landing page/start page, or be a separate page</li>
+            <li>Have <strong>clear indicated instructions</strong> for
+            interaction (visual keys or a help/info page)</li>
+            <li>Have a way to reset and start the sketch over again</li>
+            </ul>
+            <h1 id="homework">Homework</h1>
+            <p>Read Chapter 17, text</p>
+            <p>Read Chapter 20, sound</p>
+            <h3 id="final-project-proposal">Final Project proposal</h3>
+            <p>Review the requirements for your final project.</p>
+            <ol type="1">
+            <li>Post a proposal for your final project. What is the
+            concept? What tools or resources will you use? Give
+            specifics. Respond to any questions.</li>
+            </ol>
+            <h3 id="write-your-first-weekly-log-file">Write your first
+            weekly log file</h3>
+            <p>For the first weekly log file, write the following:</p>
+            <ol type="1">
+            <li>Write out in pseudocode the flow of your program. If it
+            helps, draw a flowchart that shows your software and any
+            interactivity. What happens first? What happens next, and in
+            what order? Where do branching choices occur?</li>
+            <li>What questions do you have? What are you concerned
+            about?</li>
+            <li>How will you get started?</li>
+            </ol>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>
