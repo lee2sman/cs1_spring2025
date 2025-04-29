@@ -1,3 +1,6 @@
+[Week 13 - 3d](week13/)  
+2025-04-29  
+
 [Week 12 - Sound, Text and Typography](week12/)  
 2025-04-22  
 

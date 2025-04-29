@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="date" content="" />
+            <title>Week 13 - 3d</title>
+      <link rel="stylesheet" href="../css/../css/cs1.css" />
+
+      <meta property="og:title" content="Week 13 - 3d" />
+                  <meta property="og:type" content="article" />
+  </head>
+  <body>
+      <header> <nav>
+  <ul>
+    <li><a href="https://leetusman.com/cs1_spring2025">home</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/about">about</a></li>
+    <li><a href="https://leetusman.com/cs1_spring2025/syllabus">syllabus</a></li>
+  </ul>
+</nav> </footer>
+      <h1>Week 13 - 3d</h1>
+            <p><em>Date: 2025-04-29</em></p>
+            <ul>
+            <li>3d</li>
+            <li>time to work on final project</li>
+            </ul>
+            <h2 id="processing-in-3d">Processing in 3D</h2>
+            <p>There are more rendering modes in Processing. The default
+            renderer is P2D. There is also P3D, PDF and SVG. To use a
+            non-default mode you specify it in the size() function.</p>
+            <p>example</p>
+            <pre><code>void setup(){
+  size(200,200,P3D)  
+}</code></pre>
+            <p>Different renderers have different libraries under the
+            hood in Processing. This is used for the Java library to
+            change color, shapes, text and more. They run at different
+            speeds and have somewhat different use-cases and
+            features.</p>
+            <p>Use the P3D render mode for drawing in 3D, and for
+            potentially even in 2D if you need a particular effect that
+            is only available using P3D such as texturing or
+            lighting.</p>
+            <figure>
+            <img src="../images/coordinatesystem.png"
+            alt="coordinate system in Processing, from P3D by Daniel Shiffman, CC BY-NC" />
+            <figcaption aria-hidden="true"><em>coordinate system in
+            Processing, from <a
+            href="https://processing.org/tutorials/p3d">P3D</a> by
+            Daniel Shiffman, CC BY-NC</em></figcaption>
+            </figure>
+            <p>As you can see in this image, the x and y work as we’ve
+            observed so far. We now add a 3rd dimension, z, which
+            increases moving toward you and decreases moving away.</p>
+            <p><strong>To work in 3D space you must use translate() and
+            add a 3rd argument</strong></p>
+            <pre><code>translate(x, y, z);</code></pre>
+            <p>Example 1 - a square moving toward you</p>
+            <pre><code>//from Processing.org
+float x,y,z;
+
+void setup() {
+  size(200,200,P3D);
+  x = width/2;
+  y = height/2;
+  z = 0;
+}
+
+void draw() {
+  translate(x,y,z);
+  rectMode(CENTER);
+  rect(0,0,100,100);
+
+  z++; // The rectangle moves forward as z increments.
+}</code></pre>
+            <p>We can rotate around axes</p>
+            <pre><code>size(200, 200, P3D);
+background(100);
+rectMode(CENTER);
+fill(51);
+stroke(255);
+
+translate(100, 100, 0);
+rotateZ(PI/8); //try rotating around X or Y axis
+rect(0, 0, 100, 100);</code></pre>
+            <p>There are 3d basic shapes available, as well as
+            lighting</p>
+            <pre><code>void setup() {
+  size(200, 200, P3D);
+}
+
+void draw() {
+  background(0);
+  translate(100, 100, 0);
+  if (mousePressed) {
+    lights();
+  }
+  noStroke();
+  fill(255);
+  sphere(50);
+}</code></pre>
+            <p>There are 4 kinds of lighting:</p>
+            <ul>
+            <li>ambientLight()</li>
+            <li>directionalLight()</li>
+            <li>spotLight()</li>
+            <li>pointLight()</li>
+            </ul>
+            <p>In addition to lighting we also have access to change the
+            view of the scene, which is called the camera. We can zoom
+            in, rotate and scale. This isn’t an actual camera, but it’s
+            more like we are directing a camera to take a view of a
+            particular virtual scene.</p>
+            <p>An example with the Camera</p>
+            <pre><code>void setup() {
+  size(640, 360, P3D);
+}
+
+void draw() {
+  background(0);
+  lights();
+  camera(mouseX, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
+  translate(width/2, height/2, -100);
+  stroke(255);
+  box(200);
+}</code></pre>
+            <h1 id="resources">Resources</h1>
+            <p>Much more information can be found at the P3D <a
+            href="https://processing.org/tutorials/p3d/">tutorial
+            page</a></p>
+      <footer> <hr>
+
+<p><em><a href="https://github.com/lee2sman/cs1_spring2025">This site</a> is built using <a href="https://tildegit.org/exquisitecorp/panblog">panblog</a>. Site design by Lee Tusman (c) 2025.</em></p>
+
+<p><em>All course content, unless otherwise credited, is by Lee Tusman (c) 2025 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA</a>.</em></p> </footer>
+  </body>
+</html>
